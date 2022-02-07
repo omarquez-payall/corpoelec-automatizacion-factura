@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="otros_servicios_account_move_view_form_inherit">
+            <field name="name">otros.servicios.account.move.view.form.inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside"> 
+                    <page string="Relleno Sanitario">
+                        <group>
+                                <!-- <field 
+                                    name="linea_servicio_relleno"
+                                    mode="tree"
+                                >
+                                    <tree editable="bottom" >
+                                        <control>
+                                            <create name="add_line_control" string="Add a line"/>
+                                        </control>
+                                        <field name="nombre_cargo"/>
+                                        <field name="cantidad" /> 
+                                        <field name="precio_unidad" />
+                                        <field name="tipo" invisible="1"/>
+                                        <field name="clasificacion" invisible="1"/>
+                                        <field name="subtotal" />
+                                    </tree>
+                                </field> -->
+                                <group col="3" colspan="3" >
+                                    <group></group>
+                                    <group>
+                                        <field name="subtotal_relleno"/>
+                                    </group>
+                                </group>
+                            <group >
+                                
+                            </group>
+                            <group col="6" colspan="6">
+                                
+                            </group>
+                        </group>
+                    </page>
+                     <page string="Aseo">
+                        <group>
+                                <!-- <field 
+                                    name="linea_servicio_aseo"
+                                    mode="tree"
+                                >
+                                    <tree editable="bottom" >
+                                        <control>
+                                            <create name="add_line_control" string="Add a line"/>
+                                        </control>
+                                        <field name="nombre_cargo"/>
+                                        <field name="cantidad" /> 
+                                        <field name="precio_unidad" />
+                                        <field name="tipo" invisible="1"/>
+                                        <field name="clasificacion" invisible="1"/>
+                                        <field name="subtotal" />
+                                    </tree>
+                                </field> -->
+                                <group col="3" colspan="3" >
+                                    <group></group>
+                                    <group>
+                                        <field name="subtotal_relleno"/>
+                                    </group>
+                                </group>
+                            <group >
+                                
+                            </group>
+                            <group col="6" colspan="6">
+                                
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

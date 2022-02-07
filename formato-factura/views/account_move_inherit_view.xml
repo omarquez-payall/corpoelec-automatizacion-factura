@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="invoice_view_form_inherit">
+            <field name="name">account.move.form.inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form" />
+            <field name="arch" type="xml">
+                <header > 
+                    <button 
+                        name="cargar_productos_electricidad"
+                        groups="account.group_account_invoice"
+                        string="Cargar Data Electricidad"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': ['|', '|', ('state', '!=', 'draft'), ('move_type', '=', 'entry'),('cargar_productos','=',True)]}"
+                    />
+                </header>
+                <div class="oe_title" position="inside">
+                    <group>
+                        <group>
+                            <field name="No_Contable" /> 
+                            <field name="No_Registro" />
+                        </group> 
+                    </group>
+                </div>
+                <xpath expr="//field[@name='payment_reference']" position="after"> 
+                    <field 
+                        name="cuenta_contrato"
+                    />
+                    <field name="dias_lectura" />  
+                </xpath>
+                <xpath expr="//field[@name='invoice_date']" position="after"> 
+                    <h4>Periodo de Facturacion</h4>
+                    <field name="inicio_periodo" />  
+                    <p>hasta</p>
+                    <field name="fin_periodo" />
+                </xpath>
+                <xpath expr="//notebook" position="inside"> 
+                    <page string="Saldo Vencido">
+                        <group>
+                            <group>
+                                <field name="saldo_vencido"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="seq_account_move_no_contable" model="ir.sequence">
+            <field name="name">No Contable para la Factura</field>
+            <field name="code">Seq_No_Contable</field>
+            <field name="prefix">CONTABLE</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>  
+        <record id="seq_account_move_no_registro" model="ir.sequence">
+            <field name="name">No Registro para la Factura</field>
+            <field name="code">Seq_No_Registro</field>
+            <field name="prefix">REGISTRO</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>
