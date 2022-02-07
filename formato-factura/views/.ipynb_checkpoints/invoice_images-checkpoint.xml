@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data> 
+        <record model="ir.ui.view" id="invoices_images_form">
+            <field name="name">invoices.images.form</field>
+            <field name="model">invoices.images</field>
+            <field name="arch" type="xml">
+                <form string="Invoices Images Form">
+                    <sheet>
+                        <group><field name="logo" widget="image" class="oe_avatar"/></group>
+                        <group><field name="header_logo" widget="image" class="oe_avatar"/></group>
+                        <group><field name="full_logo" widget="image" class="oe_avatar"/></group>
+                        <group><field name="payment_methods" widget="image" class="oe_avatar"/></group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+          
+        <record model="ir.ui.view" id="invoices_images_list">
+            <field name="name">invoices.images.list</field>
+            <field name="model">invoices.images</field>
+            <field name="arch" type="xml"> <tree string="Invoices Images List"> <field name="logo"/> </tree> </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="invoices_images_list_action">
+            <field name="name">Imagenes de facturas</field>
+            <field name="res_model">invoices.images</field>
+            <field name="view_mode">tree,form,pivot</field>
+            <field name="help" type="html"> <p class="o_view_nocontent_smiling_face"> Agregar imagen a facturas </p> </field>
+        </record>
+             
+        <menuitem id="menu_invoices_images" name="Imágenes Facturas" parent="account.menu_finance_configuration" sequence="31"  action="invoices_images_list_action"/>
+    </data>
+</odoo>
