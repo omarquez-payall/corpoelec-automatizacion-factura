@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_invoice_document_inherit" inherit_id="account.report_invoice_document">
+
+        <xpath expr="//t[@t-call='web.external_layout']" position="replace">
+            <t t-set="itsInvoice" t-value="1" />
+            <t t-call="web.external_layout">
+                <table style="width: 100%; height: 40px; /* border: 1px solid red; */border-collapse: collapse;">
+                    <tr>
+                        <td style="width: 40%; height: 100%; /* border: 1px solid red; */">
+                          <div style="width: 50%;"><img t-if="o.images.full_logo" t-att-src="image_data_uri(o.images.full_logo)" style="width: 100%;" alt="Logo"/></div>  <br></br>
+                          <span style="font-size: 6px ;">No. de Registro:</span> 
+                          <span style="font-size: 6px ; margin-left: 17px;">2122220788</span> 
+                          <span style="font-size: 6px ;margin-left: 40px;">No. Doc. Contable:</span> 
+                          <span style="font-size: 6px ; margin-left: 17px;">212131313323</span> 
+                        </td>
+                        <td valign="button" style="width: 15%;  height: 100%; /* border: 1px solid red; */ text-align: center; vertical-align:bottom">FACTURA</td>
+                        <td style="width: 43%;  height: 100%; /* border: 1px solid red; */ align-content: center; text-align: center;">
+                            <span style="font-size: 8px ;">No de Cuenta Contrato / NIC</span> <br></br>
+                            <div style="border: 1px solid black; height: 20px; width: 80%; margin-left: 10% ; align-content: center; padding: 2px; padding-bottom: 2.5px!important;">
+                            100006532981.7
+                            </div>
+                            <span style="font-size: 6px ;">INDIQUE ESTE NUMERO CUANDO SE COMUNIQUE CON NOSOTROS</span> 
+                        </td>
+                    </tr>
+                </table>
+
+
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td style="width: 50%; vertical-align:top; font-size: 8px;">
+                            <span style="font-size: 8px ;">Titular del Contrato:</span> <br></br>
+                            <span style="font-size: 8px ;"> INDISUDNBDJSHJN SJSSJSJ</span> <br></br>
+                            <span style="margin-right: 15px;">CI/RIF/.Nro</span>  G-200115dddsa <br></br>
+                            <span>Direccion del suministro </span> <br></br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum officiis illum optio quis consequatur debitis in aliquam veritatis, facilis consequuntur ratione dignissimos ad aut, recusandae autem dolorem nesciunt adipisci excepturi!
+                            <p style="width: 100%; margin-top: 3px;">Secuencia: 00000000001</p>
+                        </td>
+                        <td style="width: 50%; font-size: 8px !important">
+                            <p style="width: 100%; text-align: center; font-size: 11px; margin-top: -15px;">No. Factura XX16886826386386</p>
+                            Titular del Pago. Direccion de Notificacion/Fiscal <br></br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, vel corporis. Voluptatibus minima eius enim nostrum totam ab laudantium quo cupiditate, voluptate doloribus, asperiores ipsum eos, officiis iusto sint neque.
+                        </td>
+                    </tr>
+                </table>
+
+
+                <div style="position: relative;height: 27px; width: 100%; margin-top: 10px; border: 1px solid black; background-color: #E7E3E3;">
+                    <div style="position: absolute;">
+                        <div style="width: auto; height: 21px; left: 0 !important; top: 0;">
+                            <img t-if="o.images.logo" t-att-src="image_data_uri(o.images.logo)" style="height:100%; margin-left: 4px;" alt="Logo"/>
+                        </div> 
+                    </div>
+                    <div style="position: absolute; left: 35px; width: 200px; font-size: 5px; align-content: center; text-align: center; padding-top: 4px;">
+                        Corporación Eléctrica Nacional , S.A (CORPOELEC) Rif G-20010014-1 Av. <br></br>
+            Volimer entre Caracas y Alameda Edif. Centro Empresarial Caracas Piso 6 Of. 8, <br></br>
+            San Bernandino Caracas. Venezuela Telf. (0212) 502.21.11
+                    </div>
+                    <div style="position: absolute; width: 100%; top: 2px; font-size: 8px; text-align: center; text-align: center;">
+                            SERVICIO DE ELECTRICIDAD
+                    </div>
+                    <div style="position: absolute; bottom: 2px; right: 100px; font-size: 5px;">
+                       4010 Generación ,Captación y Distribución  de Energía Eléctrica
+                    </div>
+                    <div style="position: absolute; bottom: 0x; right: 3px;">
+                        <div style="height: 21px; width: auto;"> <img t-if="o.images.header_logo" t-att-src="image_data_uri(o.images.header_logo)" style="height:100%;" alt="Logo"/></div>
+                    </div>
+                </div>
+
+                <table style="position: relative;width: 63%; font-size: 10px; border: 1px solid black; border-top: 0; border-collapse: collapse;">
+                    <thead style="background-color: #ccc;">
+                        <tr>
+                            <th style="text-align: left; width: 70%; font-size: 8px; padding-left: 20px;">Detalle de Electricidad</th>
+                            <th style="font-size: 8px; text-align: right; padding-right: 20px;">Bs.</th>
+                        </tr>
+                    </thead>
+                </table>
+
+
+    <div style="position: relative; width: 100%;">
+        <div style="position: relative;width: 63%; border: 1px solid black;border-top: 0; height: 130px;">
+            <table style="position: relative;width: 100.3%; font-size: 8px; border-collapse: collapse;">
+                <tbody style="padding-left: 3px;">
+                    <tr>
+                        <td colspan="2">FACTURACION POR CONSUMO</td>
+                    </tr>
+                    <tr>
+                        <td> Laiores voluptas! Voluptates reiciendis eius quod voluptas, libero harum facere accusamus. 30x30</td>
+                        <td style="text-align: right; padding-right: 5px;">49.340,00</td>
+                    </tr>
+        
+                    <tr>
+                        <td colspan="2">CARGOS POR AJUSTE COMBUSTIBLE Y ENERGIA (''')</td>
+                    </tr>
+                    <tr>
+                        <td> Laiores voluptas! Voluptates reiciendis eius quod voluptas, 203X30</td>
+                        <td style="text-align: right; padding-right: 5px;">0.05</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">CARGOS POR AJUSTE COMBUSTIBLE Y ENERGIA (''')</td>
+                    </tr>
+                    <tr>
+                        <td> Laiores voluptas! Voluptates reiciendis eius quod voluptas, 203X30</td>
+                        <td style="text-align: right; padding-right: 5px;">0.05</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="position: absolute; width: 35%; right:0; top: 0;">
+            <table style="font-size: 6.5px;border-collapse: collapse; width: 100%;">
+                <tr>
+                    <td style="border: 1px solid black; text-align: center; width: 15%;">Tipo de  <br></br>Tarifa</td>
+                    <td style="border: 1px solid black; text-align: center;width: 55%;">CNAE</td>
+                    <td style="border: 1px solid black;text-align: center; width:30%">No. de Medidor</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black;text-align: center;">1</td>
+                    <td style="border: 1px solid black;text-align: center;">1</td>
+                    <td style="border: 1px solid black;text-align: center;">1</td>
+                </tr>
+                
+                </table>
+        
+                <table style="font-size: 6px;border-collapse: collapse; width: 100%;">
+                    <tr style="height: 20px;">
+                        <td style=" text-align: center; width: 33.3%;">Demanda Asignada (KVA)</td>
+                        <td style=" text-align: center;width: 33.3%;">CNAE</td>
+                        <td style="text-align: center; width:33.3%">No. de Medidor</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black;text-align: center;">1</td>
+                        <td style="border: 1px solid black;text-align: center;">1</td>
+                        <td style="border: 1px solid black;text-align: center;">1</td>
+                    </tr>
+                    
+                </table>
+                <table style="font-size: 6px;border-collapse: collapse; width: 100%; margin-top: 10px;">
+                    <tr style="height: 10px;">
+                        <td style=" text-align: center; width: 20%;">CONCEPTO</td>
+                        <td style=" text-align: center;width: 20%;">Lectura Actual</td>
+                        <td style="text-align: center; width:20%">Lectura Anterior</td>
+                        <td style="text-align: center; width:20%">Factor Mult.</td>
+                        <td style="text-align: center; width:20%">Cantidad  Medida</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black;text-align: center;">1</td>
+                        <td style="border: 1px solid black;text-align: center;">1</td>
+                        <td style="border: 1px solid black;text-align: center;">1</td>
+                        <td style="border: 1px solid black;text-align: center;">1</td>
+                        <td style="border: 1px solid black;text-align: center;">1</td>
+                    </tr>
+                    
+                </table>
+          </div>
+    </div>
+    <table style="position: relative;width: 63%; font-size: 8px; border: 1px solid black; border-top: 0; border-collapse: collapse;">
+        <tfoot style="background-color: #ccc;">
+            <tr>
+              <td>TOTAL CARGOS POR SERVICIO DE ELECTRICIDAD <span style="margin-left: 25%;">Bs.</span></td>
+              <td style="align-content: right; text-align: right; padding-right: 3px;">88.434,97</td> 
+            </tr>
+          </tfoot>
+    </table>
+    <div style="position: relative; width: 100%; height: 25px ;">
+        <div style="position: absolute; right:0; top: 5px; border: 1px solid black;  padding: 5px; text-align: center; align-content: center; font-size: 5.5px; width: 20%; font-weight: bold;">
+            PERIODO DE FACTURACION DE ENERGIA <br></br>
+            03.06.2021 al 02.07.2021
+        </div>
+        <div style="position: absolute; top:3px; left: 0; font-size: 4px; line-height: 6px;">
+            (*) LOS PRECIOS Y CONCEPTOS INDICADOS EN ESTA FACTURASE RIGEN DE ACUERDO CON LA GACETA OFICIAL. No. 37415 DE FECHA : 05.04.2002 <br></br>
+(**) CONSUMO EQUIVALENTE KWH- CONSUMO ( KWH ) X 30 / DIAS DE FACTURACIÓN <br></br>
+(***) C.A.C.F. ART. N-20 SEGUN GACETA ANTES REFERIDA <br></br>
+(****) GACETA OFICIAL 38.263 DE FECHA 01/09/05
+
+        </div>
+
+    </div>
+
+
+
+
+    <div style="position: relative;width: 100%; top: 2px; font-size: 5px;  height: 30px;">
+        <div style="position: absolute; bottom: 0;">
+            Cuenta Contrato Colectiva: <br></br>
+            Documento Impresion Colectivo <br></br>
+            Determinacion de cuenta Colectiva  
+        </div>
+        <div style="position: absolute; bottom: 0; left: 200px;">
+            Banco: <br></br>
+            Cuenta: <br></br>
+        </div>
+         <div style="position: absolute; bottom: 0; right: 10px; ">
+          <table style="font-size: 10px;border-collapse: collapse;">
+              <tr>
+                  <td style="padding-right: 4px;">SUB-TOTAL</td>
+                  <td style="background-color: #ccc; width: 70px;">Bs</td>
+                  <td style="background-color: #ccc;">88.32323,83</td>
+              </tr>
+          </table>
+         </div>
+    </div>
+    <div style="font-size: 7px; position: relative; top: 5px; width: 100%; background-color: #ccc;  padding: 1px; align-content: center; text-align: center;border: 1px solid black;">
+        OTROS SERVICIOS
+    </div>
+
+
+    
+    <div id="cuadroOtrosServicios" style="position: relative; width: 100%; top:5px; height: 186px; padding-top: 1px;">
+        <!--  ###################### ASEO ###################### -->
+  <div id="aseo" style="position:absolute; width: 27%;top:1px; border: 1px solid black;height: 90px; ">
+      <div style="position: absolute; top: 0; left: 0; height: 86px; width: 10px;background-color: #ccc; align-content: center; text-align: center;">
+        <div style="width: 30px; margin-top: 45px ;margin-left: -10px ;font-size: 6px;transform: rotate(-90deg);-ms-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-o-transform: rotate(-90deg);">ASEO</div>
+      </div>
+      <div style="position: absolute; top:12px; font-size: 6px; text-align: center; align-content: center; width: 100%;">
+          9000 Eliminacion de Desperdicios y Aguas Residuales <br></br>
+          Sanamiento y Actividades Similares
+      </div>
+      <div style="position: absolute; top:1px; font-size: 3px; text-align: center; align-content: center; width: 100%;">
+          Fospuca Solillo , C.A. RIF: J-40944472-1 Av Costanera cruce con avenida   <br></br>
+          Fuerzas Armadas CC Camino Real nivel feria de planta 1 local B-L63. <br></br>
+          módulo B sector centro Barcelona Anzoategui zona postal
+      </div>
+      <table style="position: absolute; top: 32px; left: 20px; border-collapse: collapse; font-size: 6px !important;">
+          <tr>
+              <td>Servicio de Aseo Urbano</td> <td>Bs.</td>
+          </tr>
+          <tr>    
+              <td>Otros Cargos y Créditos</td> <td>Bs.</td>
+          </tr>
+          <tr>
+              <td>Total Base Imponible <br></br> Total IVA</td> <td>Bs.</td>
+          </tr>
+      </table>
+
+      <div style="position: absolute; bottom: 2px; left: 20px; ">
+          <table style="font-size: 6.5px;border-collapse: collapse;">
+              <tr>
+                  <td style="padding-right: 4px;width: 77px;">TOTAL ASEO</td>
+                  <td style="background-color: #ccc; width: 30px;">Bs.</td>
+                  <td style="background-color: #ccc;">88.32323,83</td>
+              </tr>
+          </table> 
+         </div>
+  </div>
+
+   <!--  ###################### IMPUESTO INMUBLE ###################### -->
+   <div id="impuestoInmueble" style="position:absolute; width: 27%;top: 94px; border: 1px solid black;height: 90px; ">
+    <div style="position: absolute; top: 1%; left: 6%; width: 15px;"><img t-if="o.images.service_icon_2" t-att-src="image_data_uri(o.images.service_icon_2)" alt="" style="width: 100%;" /></div> 
+    <div style="position: absolute; top: 0; left: 0; height: 86.5px; width: 10px;background-color: #ccc; align-content: center; text-align: center;">
+        <div style=" width: 100px; margin-top: 38px; margin-left: -45px; font-size: 5.5px;transform: rotate(-90deg);-ms-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-o-transform: rotate(-90deg);">IMPUESTO INMUEBLE</div>
+      </div>
+
+      <table style="position: absolute; top: 32px;  left: 20px; border-collapse: collapse; font-size: 6px !important;">
+          <tr>
+              <td>Número de Identificacion del <br></br> Inmueble:</td> <td style="vertical-align:top">Bs.</td>
+          </tr>
+          <tr>
+              <td>Impuesto Inmobiliario:</td> <td>Bs.</td>
+          </tr>
+
+      </table>
+
+      <div style="position: absolute; bottom: 2px; left: 20px; ">
+          <table style="font-size: 6.5px;border-collapse: collapse;">
+              <tr>
+                  <td style="padding-right: 4px;width: 77px;">TOTAL IMPUESTO</td>
+                  <td style="background-color: #ccc; width: 30px;">Bs.</td>
+                  <td style="background-color: #ccc;">88.32323,83</td>
+              </tr>
+          </table>
+         </div>
+  </div>
+
+  <!--  ###################### RELLENO###################### -->
+  <div style="position:relative; width: 27%;top:0; left: 35%; border: 1px solid black;height: 90px; ">
+    <div style="position: absolute; top: 1%; left: 6%; width: 15px;"><img t-if="o.images.service_icon_1" t-att-src="image_data_uri(o.images.service_icon_1)" alt="" style="width: 100%;" /></div>  
+    <div style="position: absolute; top: 0; left: 0; height: 86.5px; width: 10px;background-color: #ccc; align-content: center; text-align: center;">
+        <div style=" width: 100px; margin-top: 35px; margin-left: -45px; font-size: 5.5px;transform: rotate(-90deg);-ms-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-o-transform: rotate(-90deg);">RELLENO SANITARIO</div>
+      </div>
+
+      <table style="position: absolute; top: 32px;  left: 20px; border-collapse: collapse; font-size: 6px !important;">
+          <tr>
+              <td>Servicio de Relleno Sanitario:</td> <td style="vertical-align:top">Bs.</td>
+          </tr>
+          <tr>
+              <td>Otros Cargos y Créditos:</td> <td>Bs.</td>
+          </tr>
+          <tr>
+              <td>Total Base Imponible <br></br> Total IVA</td> <td>Bs.</td>
+          </tr>
+
+      </table>
+
+      <div style="position: absolute; bottom: 2px; left: 20px; ">
+          <table style="font-size: 6.5px;border-collapse: collapse;">
+              <tr>
+                  <td style="padding-right: 4px;width: 77px;">TOTAL RELLENO</td>
+                  <td style="background-color: #ccc; width: 30px;">Bs.</td>
+                  <td style="background-color: #ccc;">88.32323,83</td>
+              </tr>
+          </table>
+         </div>
+  </div>
+  <div style="position:absolute; width: 27%;top: 94px;left: 35%; border: 1px solid black;height: 90px; ">
+    <div style="position: absolute; top: 1%; left: 6%; width: 15px;"><img t-if="o.images.service_icon_3" t-att-src="image_data_uri(o.images.service_icon_3)" alt="" style="width: 100%;" /></div>    
+    <div style="position: absolute; top: 0; left: 0; height: 86.5px; width: 10px;background-color: #ccc; align-content: center; text-align: center;">
+          <div style="width: 30px; margin-top: 45px ;margin-left: -10px ;font-size: 6px;transform: rotate(-90deg);-ms-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-o-transform: rotate(-90deg);">GAS</div>
+      </div>
+
+      <table style="position: absolute; top: 32px; left: 20px; border-collapse: collapse; font-size: 6px !important;">
+          <tr>
+              <td>Servicio de GAS</td> <td style="vertical-align:top">Bs.</td>
+          </tr>
+          <tr>
+              <td>Otros Cargos y Créditos:</td> <td>Bs.</td>
+          </tr> 
+          <tr>
+              <td>Total Base Imponible <br></br> Total IVA</td> <td>Bs.</td>
+          </tr>
+
+      </table>
+
+      <div style="position: absolute; bottom: 2px; left: 20px; ">
+          <table style="font-size: 6.5px;border-collapse: collapse;">
+              <tr>
+                  <td style="padding-right: 4px;width: 77px;">TOTAL GAS</td>
+                  <td style="background-color: #ccc; width: 30px;">Bs.</td>
+                  <td style="background-color: #ccc;">88.32323,83</td>
+              </tr>
+          </table>
+         </div>
+  </div>
+   <div style="position: absolute; top: 0; right: 0; height: 80px; width: 27%; ">
+        
+          <img t-if="o.images.payment_methods" t-att-src="image_data_uri(o.images.payment_methods)" alt="" style="width: 100%; height: 100%;"/>
+      </div>
+      <div style="position: absolute; top: 82px; right: 0; height: 80px; width: 27%; ">
+          <img t-if="o.images.advertisement" t-att-src="image_data_uri(o.images.advertisement)" alt="" style="width: 100%; height: 100%;"/>
+      </div>  
+  
+  </div>
+      <div style="font-size: 7px; position: relative; top: 5px; width: 100%; height: auto; background-color: #ccc;  padding: 1px; align-content: center; text-align: center;border: 1px solid black;">
+        INFORMACIÓN COMERCIAL
+    </div>
+    <!--     ###################### ELECTRICIDAD ###################### -->
+    <div id="cuadroInformacionComercial" style="position: relative; width: 100%; top:5px; height: 103px; padding-top: 1px; ">
+      <div style="position: absolute; top: 11px; left: 37%; height: 80px; width: 27%; align-content: center !important; text-align: center; ">
+                <img t-if="o.images.footer_icon_1" t-att-src="image_data_uri(o.images.footer_icon_1)" alt="" style=" height: 100%;"/>
+          </div>
+        <div id="electricidad" style="position:absolute; width: 27%;top:1px; border: 1px solid black;height: 95px; ">
+         <div style="position: absolute; top: 0; left: 6%; width: 20px;">
+            <img t-if="o.images.logo" t-att-src="image_data_uri(o.images.logo)" alt="" style="width: 100%;"/>
+         </div>
+            <div style="position: absolute; top: 0; left: 0; height: 90px; width: 10px;background-color: #ccc; align-content: center; text-align: center;">
+              <div style=" width: 100px; margin-top: 38px; margin-left: -45px; font-size: 6px;transform: rotate(-90deg);-ms-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-o-transform: rotate(-90deg);">ELECTRICIDAD</div>
+            </div>
+            <div style="position: absolute; top:12px; font-size: 6px; text-align: center; align-content: center; width: 100%;">
+                4010 Eliminacion de Desperdicios y Aguas Residuales <br></br>
+                Sanamiento y Actividades Similares
+            </div>
+            <div style="position: absolute; top:1px; font-size: 3px; text-align: center; align-content: center; width: 100%;">
+                Corporación Eléctrica Nacional , S.A (CORPOELEC) Rif G-20010014-1 Av. <br></br>
+                Volimer entre Caracas y Alameda Edif. Centro Empresarial Caracas Piso 6 Of. 8, <br></br>
+                San Bernandino Caracas. Venezuela Telf. (0212) 502.21.11
+            </div>
+            <table style="position: absolute; top: 32px; left: 20px; border-collapse: collapse; font-size: 6px !important;">
+                <tr>
+                    <td>Servicio de Electricidad</td> <td>Bs.</td>
+                </tr>
+                <tr>    
+                    <td>Otros Cargos y Créditos</td> <td>Bs.</td>
+                </tr>
+                <tr>
+                    <td>Total Base Imponible </td> <td>Bs.</td>
+                </tr>
+                <tr>
+                    <td>Monto Exento o Exonerado de IVA </td> <td style="font-weight: bold;">(Bs.0,00)</td>
+                </tr>
+                <tr>
+                    <td> Total IVA</td> <td>Bs.</td>
+                </tr>
+            </table>
+    
+            <div style="position: absolute; bottom: 2px; left: 20px;">
+                <table style="font-size: 6.5px;border-collapse: collapse;">
+                    <tr>
+                        <td style="padding-right: 4px;width: 77px; font-size: 6.5px; ">TOTAL ELECTRICIDAD</td>
+                        <td style="background-color: #ccc; width: 30px;">Bs.</td>
+                        <td style="background-color: #ccc;text-align: right;">88.32323,83</td>
+                    </tr>
+                </table>
+               </div>
+        </div>
+           <!--  ###################### SALDO VENCIDO ##################### -->
+     <div id="saldoVencido" style="position:absolute; width: 27%;top: 1px; right: 0px; border: 1px solid black;height: 95px; ">
+        <div style="position: absolute; top: 1%; left: 7%; width: 20px; height: auto;"> <img t-if="o.images.footer_icon_2" t-att-src="image_data_uri(o.images.footer_icon_2)" alt="" style="width: 100%;"/></div>
+        <div style="position: absolute; top: 0; left: 0; height: 90px; width: 10px;background-color: #ccc; align-content: center; text-align: center;">
+          <div style=" width: 100px; margin-top: 39px; margin-left: -45px; font-size: 5.5px;transform: rotate(-90deg);-ms-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-o-transform: rotate(-90deg);">SALDO VENCIDO</div>
+        </div>
+        <div style="position: absolute; top:1px; font-size: 3px; text-align: center; align-content: center; width: 100%;">
+            Administradora Serdeco , C.A. RIF: J-00240703-1 NIT: 006396895 Capital Bs <br></br>
+            100.000.000,00 Av. Volimer c/Caracas Alameda Edif. Ctro. Empresarial de <br></br>
+            Caracas, Piso 11 Ofic Serdeco, Urb. San Bernandino
+        </div>
+
+        <table style="position: absolute; top: 32px; left: 20px; border-collapse: collapse; font-size: 6px !important;">
+            <tr>
+                <td>Eléctricidad, Saldo Vencido</td> <td style="vertical-align:top">Bs.</td>
+            </tr>
+            <tr>
+                <td>Aseo, Saldo Vencido</td> <td>Bs.</td>
+            </tr>
+
+        </table>
+
+        <div style="position: absolute; bottom: 2px; left: 20px;">
+            <table style="font-size: 6.5px;border-collapse: collapse;">
+                <tr>
+                    <td style="padding-right: 4px;width: 85px;">TOTAL SALDO VENCIDO</td>
+                    <td style="background-color: #ccc; width: 25px;">Bs.</td>
+                    <td style="background-color: #ccc;text-align: right;">88.32323,83</td>
+                </tr>
+            </table>
+           </div>
+    </div>
+    </div>
+
+    <div style="font-size: 7px; position: relative; width: 100%; background-color: #ccc;  padding: 1px; align-content: center; text-align: center;border: 1px solid black;">
+        MONTO TOTAL A PAGAR
+    </div>
+
+    <div style="position: relative; width: 100%; height: 35px;">
+        <div style="position: absolute; top: 2px; left: 5px; font-size: 10px;">
+         Pague antes de: 26.09.2021
+        </div>
+
+        <div style="position:absolute; width: 100%; bottom: 0 !important; font-size: 5px; align-content: center; text-align: center;">
+            CONSERVE ESTA FACTURA SU CANCELACIÓN NO PRUEBA EL PAGO DE LAS ANTERIORES
+        </div>
+
+        <div style="position: absolute !important; bottom: 2px; right: 0; ">
+            <table style="font-size: 6.5px;border-collapse: collapse;">
+                <tr>
+                    <td style="padding-right: 4px;width: 75px;">ENERGIA</td>
+                    <td style="background-color: #ccc; width: 25px;">Bs.</td>
+                    <td style="background-color: #ccc;text-align: right;">88.323.000.000.000,83</td>
+                </tr>
+                <tr>
+                    <td style="padding-right: 4px;width: 75px;">OTROS SERVICIOS</td>
+                    <td style="background-color: #ccc; width: 25px;">Bs.</td>
+                    <td style="background-color: #ccc; text-align: right;">88.323.000.000.000</td>
+                </tr>
+                <tr>
+                    <td style="padding-right: 4px;width: 75px;">TOTAL </td>
+                    <td style="background-color: #ccc; width: 25px;">Bs.</td>
+                    <td style="background-color: #ccc; text-align: right;">88.323.000.000.000</td>
+                </tr>
+            </table>
+           </div>
+
+    </div>
+
+
+    <div style="position: relative; width: 100%; height: 45px; top: 2px; border-top-color:#ccc; border-top-style:dashed; border-top-width:0.8px;  ">
+        <div style="position: absolute; width: 100%; top: 1px; height: auto; font-size: 6px; text-align: center; align-content: center;">PARA USO DE LA EMPRESA Y AGENTES DE RECAUDACION </div>
+        <div style="position: absolute; font-size: 4px; top:2px; left: 18%;">
+          OFICINA <br></br>
+          BANCO <br></br>
+          CUENTA <br></br>
+      </div> 
+      <div style="position: absolute; bottom: 17px; left: 0; width: 100%; text-align: left; align-content: left; font-size: 5px;">
+          Esta factura es emitida conforme a lo dispuesto en la Providencia Administrativa N.º SNAT/2009 0091 contenido en la Gaceta Oficial N°39.259 de fecha 08/09/2009 por CORPOELEC Rif G-20010012-1 Av Volimer entre Caracas y Alameda Edif Centro Empresarial Caracas piso 6 Of. 6.San Benardino Caracas, Venezuela Telf. (0212) 502.21.11
+      </div>
+  
+      <div style="position: absolute; bottom: 2px; left: 0;">
+           <div style="height: 14px; width: auto; font-size: 5px;">
+            <img t-if="o.images.footer_icon_3" t-att-src="image_data_uri(o.images.footer_icon_3)" alt="" style="height: 100%;"/>
+          </div>
+      </div>
+    
+     
+      </div>
+            </t> 
+        </xpath>
+    </template>
+</odoo>
