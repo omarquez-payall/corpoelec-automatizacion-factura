@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="res_partner_view_form_inherit">
+            <field name="name">res.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_type']" position="after"> 
+                    <group>
+                        <field name="partner_code" placeholder="Código de Interlocutor" readonly="1"/> 
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="seq_partner_code" model="ir.sequence">
+            <field name="name">Sequencia Interlocutores</field>
+            <field name="code">partner_code_seq</field>
+            <field name="prefix">5005</field>
+            <field name="padding">9</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

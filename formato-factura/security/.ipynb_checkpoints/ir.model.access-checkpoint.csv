@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+invoice_images_admin,invoice_images_admin,model_invoices_images,invoice_admin,1,1,0,0
+integracion_payall_All, All users,model_integracion_payall,base.group_user,1,1,1,1
+invoice_images_read,invoice_images_read,model_invoices_images,,1,0,0,0
