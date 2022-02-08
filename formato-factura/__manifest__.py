@@ -26,6 +26,7 @@
         'security/invoices_images_security.xml',
         'security/ir.model.access.csv',
         'data/invoices_images.xml',
+        'data/product.xml',
         'views/product_template_inherit_view.xml',
         'views/invoice_images.xml',
         'views/invoice_images_inherit.xml',
