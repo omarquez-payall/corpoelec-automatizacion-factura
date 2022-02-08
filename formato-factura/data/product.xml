@@ -13,8 +13,8 @@
             <field name="parent_id" ref="product.product_category_1"/>
             <field name="name">Services</field>
         </record>
-        <record id="producto_electricidad_1" model="product.product">
-            <field name="name">Electricidad</field>
+        <record id="producto_electricidad_consumo_1" model="product.product">
+            <field name="name">FACTURACION POR CONSUMO</field>
             <field name="categ_id" ref="product_category_2"/>
             <field name="standard_price">1</field>
             <field name="list_price">1</field>
@@ -24,24 +24,24 @@
             <field name="uom_id" ref="uom.product_uom_unit"/>
             <field name="uom_po_id" ref="uom.product_uom_unit"/>
         </record>
-        <record id="producto_aseo_1" model="product.product">
-            <field name="name">Aseo</field>
+        <record id="producto_electricidad_combustible_1" model="product.product">
+            <field name="name">CARGO POR AJUSTE COMBUSTIBLE Y ENERGIA</field>
             <field name="categ_id" ref="product_category_2"/>
             <field name="standard_price">1</field>
             <field name="list_price">1</field>
             <field name="precargar">True</field>
             <field name="type">service</field>
-            <field name="clasificacion">aseo</field>
+            <field name="clasificacion">electricidad</field>
             <field name="uom_id" ref="uom.product_uom_unit"/>
             <field name="uom_po_id" ref="uom.product_uom_unit"/>
         </record>
-        <record id="producto_relleno_1" model="product.product">
-            <field name="name">Relleno Sanitario</field>
+        <record id="producto_electricidad_demanda_1" model="product.product">
+            <field name="name">FACTURACION POR DEMANDA</field>
             <field name="categ_id" ref="product_category_2"/>
             <field name="standard_price">1</field>
             <field name="list_price">1</field>
             <field name="precargar">True</field>
-            <field name="clasificacion">relleno</field>
+            <field name="clasificacion">electricidad</field>
             <field name="type">service</field>
             <field name="uom_id" ref="uom.product_uom_unit"/>
             <field name="uom_po_id" ref="uom.product_uom_unit"/>
