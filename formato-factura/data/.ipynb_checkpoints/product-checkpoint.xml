@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <record id="product_uom_categ_unit" model="uom.category">
+            <field name="name">Unit</field>
+        </record>
+        <record id="product_uom_unit" model="uom.uom">
+            <field name="category_id" ref="product_uom_categ_unit"/>
+            <field name="name">Units</field>
+            <field name="factor" eval="1.0"/>
+            <field name="uom_type">reference</field>
+        </record>
+        <record id="product_category_2" model="product.category">
+            <field name="parent_id" ref="product.product_category_1"/>
+            <field name="name">Services</field>
+        </record>
+        <record id="producto_electricidad_1" model="product.product">
+            <field name="name">Electricidad</field>
+            <field name="categ_id" ref="product_category_2"/>
+            <field name="standard_price">1</field>
+            <field name="list_price">1</field>
+            <field name="type">service</field>
+            <field name="clasificacion">electricidad</field>
+            <field name="precargar">True</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+        <record id="producto_aseo_1" model="product.product">
+            <field name="name">Aseo</field>
+            <field name="categ_id" ref="product_category_2"/>
+            <field name="standard_price">1</field>
+            <field name="list_price">1</field>
+            <field name="precargar">True</field>
+            <field name="type">service</field>
+            <field name="clasificacion">aseo</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+        <record id="producto_relleno_1" model="product.product">
+            <field name="name">Relleno Sanitario</field>
+            <field name="categ_id" ref="product_category_2"/>
+            <field name="standard_price">1</field>
+            <field name="list_price">1</field>
+            <field name="precargar">True</field>
+            <field name="clasificacion">relleno</field>
+            <field name="type">service</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+    </data>
+</odoo>
