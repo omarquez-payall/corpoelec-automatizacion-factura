@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api
-import datetime
 
 
 class AccountMove( models.Model):
@@ -30,13 +29,6 @@ class AccountMove( models.Model):
     # COMO DEBE ESTAR EN PRODUCCION
     #dias_lectura = fields.Integer( string = "Dias Lectura", required = True)
     #CREAR LINEAS DEL SERVICIO DE ELECTRICIDAD, ASEO Y RELLENO
-    
-    @api.onchange('inicio_periodo')
-    def expiration_date(self):
-        for record in self:
-            record.dias_lectura = record.inicio_periodo.day
-            
-            
 
     @api.model
     def create(self, vals):
@@ -78,30 +70,20 @@ class AccountMove( models.Model):
                     'move_id': record.id
                 })
                 record.cargar_productos = True
-            record.linea_electricidad.create({
-                'move_id': record.id,
-                'nombre_cargo': 'FACTURACION POR CONSUMO',
-                'cantidad': 1,
-                'tipo':'principal',
-                'clasificacion':'consumo',
-                'precio_unidad':1,
-                'subtotal':1
-            })
-            record.linea_electricidad.create({
-                'move_id': record.id,
-                'nombre_cargo': 'CARGO POR AJUSTE COMBUSTIBLE Y ENERGIA',
-                'cantidad': 1,
-                'tipo':'otro',
-                'clasificacion':'combustible',
-                'precio_unidad':1,
-                'subtotal':1
-            })
-            record.linea_electricidad.create({
-                'move_id': record.id,
-                'nombre_cargo': 'FACTURACION POR DEMANDA',
-                'cantidad': 1,
-                'tipo':'principal',
-                'clasificacion':'demanda',
-                'precio_unidad':1,
-                'subtotal':1
-            })
+
+    @api.model
+    def cargar_productos_api(self):
+       for record in self:
+           products = self.env['product.product'].search( [['precargar','=',True]])
+           
+           for product in products:
+               #CAMBIAR ACCOUNT_ID CUANDO SE SEPA A CUAL VA
+               record.invoice_line_ids.create({
+                   'name': product.name,
+                   'price_unit': product.price,
+                   'quantity': 1,
+                   'product_id': product.id,
+                   'account_id': 1,
+                   'move_id': record.id
+               })
+               record.cargar_productos = True
