@@ -25,10 +25,13 @@
     'data': [
         'security/invoices_images_security.xml',
         'security/ir.model.access.csv',
+        ## Los siguientes archivos cargan el paquete de localizacion fiscal
+        ## El orden en el manifest debe mantenerse
         'data/chart_data.xml',
         'data/account.account.template.csv',
         'data/chart_post_data.xml',
         'data/chart_template_data.xml',
+        ## El orden de los 4 archivos anteriores debe mantenerse
         'data/invoices_images.xml',
         'views/product_template_inherit_view.xml',
         'views/invoice_images.xml',
