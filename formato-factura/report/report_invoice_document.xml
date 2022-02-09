@@ -25,10 +25,12 @@
                     </tr>
                 </table> -->
 
-
+                
                 <table style="width: 100%; border-collapse: collapse;">
                     <tr>
                         <td style="width: 50%; vertical-align:top; font-size: 8px; ">
+                            <span t-field="o.partner_id.name" style="font-size: 8px ;"/>
+                            <span t-field="o.partner_id.titular" style="font-size: 8px ;"/>
                             <span style="font-size: 8px ;">Titular del Contrato:</span> <br></br>
                             <span style="font-size: 8px ;"> INDISUDNBDJSHJN SJSSJSJ</span> <br></br>
                             <span style="margin-right: 15px;">CI/RIF/.Nro</span>  G-200115dddsa <br></br>
