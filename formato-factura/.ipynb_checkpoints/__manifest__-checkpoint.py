@@ -39,6 +39,7 @@
         'views/res_partner_inherit.xml',
         'views/linea_servicio_view.xml',
         'views/contract_accounts.xml',
+        'views/contract_accounts_inherit.xml',
         'report/external_layout_background_inherit.xml',
         'report/report_invoice_document.xml',
     ],

@@ -8,7 +8,8 @@
             <field name="arch" type="xml">
                 <notebook>
                     <page string="Images" invisible="1">
-                        <field name="images" invisible="1"/>
+                        <field name ="images" invisible="1"/>
+                        <field name ="cargar_productos" invisible="1"/>
                     </page> 
                 </notebook>
             </field>

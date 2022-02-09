@@ -14,6 +14,9 @@ class ContractAccounts( models.Model):
     titular = fields.Many2one(string = 'Titular', comodel_name = 'res.partner')
     tarifa = fields.Float(string = 'Demanda asignada')
     fecha_creacion = fields.Date(string = 'Fecha de creación')
+    """ move_id = fields.Many2one( 
+        comodel_name = "account.move", 
+        string = "Factura asociada") """
     
     @api.model
     def create(self, vals):

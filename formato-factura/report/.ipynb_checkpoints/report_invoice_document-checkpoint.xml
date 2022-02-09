@@ -29,12 +29,11 @@
                 <table style="width: 100%; border-collapse: collapse;">
                     <tr>
                         <td style="width: 50%; vertical-align:top; font-size: 8px; ">
-                            <span t-field="o.partner_id.titular" />
                             <span style="font-size: 8px ;">Titular del Contrato: <span t-field="o.partner_id.name" /></span> <br></br>
                             <span style="font-size: 8px ;"> INDISUDNBDJSHJN SJSSJSJ</span> <br></br>
                             <span style="margin-right: 15px;">CI/RIF/.Nro</span>  G-200115dddsa <br></br>
                             <span>Direccion del suministro </span> <br></br>
-                        ssimos ad aut, recusandae autem dolorem nesciunt adipisci excepturi!
+                                <span t-field="o.partner_id.dir_sum" />
                             <p style="width: 100%; margin-top: 3px;">Secuencia: 00000000001</p>
                         </td> 
                         <td style="position: relative;width: 50%; font-size: 8px !important; ">
@@ -46,8 +45,9 @@
                             </div>
                             
                             <p style="width: 100%; text-align: center; font-size: 11px; margin-top: -3.5px;">No. Factura XX16886826386386</p>
-                            Titular del Pago: <span t-field="o.partner_id.titular" /> Direccion de Notificacion/Fiscal <br></br>
-                          doloribus, asperiores ipsum eos, officiis iusto sint neque.
+                            Titular del Pago:  Direccion de Notificacion/Fiscal <br></br>
+                            <span t-field="o.partner_id.titular" /><br></br>
+                            <span t-field="o.partner_id.dir_fisc" />
                         </td>
                     </tr>
                 </table>
