@@ -4,6 +4,8 @@ from odoo import models, fields, api
 
 class PartnerCodeInherit( models.Model):
     _inherit = 'res.partner'
+
+    interlocutor_id = fields.Char(string ="ID de SAP")
     partner_code = fields.Char(string = 'Código de Interlocutor', default=lambda self: self._get_next_sequence_number() )
     titular = fields.Char(string = 'titular de pago')
     contract_accounts = fields.One2many(string = 'Cuentas contrato', comodel_name = 'contract.accounts', inverse_name = 'titular')
