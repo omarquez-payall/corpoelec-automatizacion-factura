@@ -1,5 +1,5 @@
-"id","titular:id","no_cta_contrato","address_suministro","tarifa","cnae","medidor","fecha_creacion"
-"contract_1","demo_user","d4fgb654dr654b56re45g6re4","2da. Avenida de Los Cortijos de Lourdes, Edificio Centro Empresarial Polar. Caracas, Venezuela.. Telf. (58 212) 202.31.11","35.2","4v65srd465v4wre65br","s5b45rs45b4re4bv5re4",NOW()
-"contract_2","demo_user","32152165123161f1n1ehreher6","2da. Avenida de Los Cortijos de Lourdes, Edificio Centro Empresarial Polar. Caracas, Venezuela.. Telf. (58 212) 202.31.11","12.5","4wv65ew4v65rew4g4re654","f65y4njtr4b1t65kjyt",NOW()
-"contract_3","demo_user","f6n65te5njhtr41nh65h65er5h+6e","2da. Avenida de Los Cortijos de Lourdes, Edificio Centro Empresarial Polar. Caracas, Venezuela.. Telf. (58 212) 202.31.11","3.14","db5erb1reb1e1g65e","d4berb651wr54hber41",NOW()
-"contract_4","demo_user","fn4tr4n56tr5jh4t4hd654h564he5h4","2da. Avenida de Los Cortijos de Lourdes, Edificio Centro Empresarial Polar. Caracas, Venezuela.. Telf. (58 212) 202.31.11","21561","bdr651b5re1b1re651bre1","65t4nre1354h44j4",NOW()
+"id","titular:id","no_cta_contrato","address_suministro","tarifa","cnae","medidor"
+"contract_1","demo_user","d4fgb654dr654b56re45g6re4","2da. Avenida de Los Cortijos de Lourdes, Edificio Centro Empresarial Polar. Caracas, Venezuela.. Telf. (58 212) 202.31.11","35.2","4v65srd465v4wre65br","s5b45rs45b4re4bv5re4"
+"contract_2","demo_user","32152165123161f1n1ehreher6","2da. Avenida de Los Cortijos de Lourdes, Edificio Centro Empresarial Polar. Caracas, Venezuela.. Telf. (58 212) 202.31.11","12.5","4wv65ew4v65rew4g4re654","f65y4njtr4b1t65kjyt"
+"contract_3","demo_user","f6n65te5njhtr41nh65h65er5h+6e","2da. Avenida de Los Cortijos de Lourdes, Edificio Centro Empresarial Polar. Caracas, Venezuela.. Telf. (58 212) 202.31.11","3.14","db5erb1reb1e1g65e","d4berb651wr54hber41"
+"contract_4","demo_user","fn4tr4n56tr5jh4t4hd654h564he5h4","2da. Avenida de Los Cortijos de Lourdes, Edificio Centro Empresarial Polar. Caracas, Venezuela.. Telf. (58 212) 202.31.11","21561","bdr651b5re1b1re651bre1","65t4nre1354h44j4"
