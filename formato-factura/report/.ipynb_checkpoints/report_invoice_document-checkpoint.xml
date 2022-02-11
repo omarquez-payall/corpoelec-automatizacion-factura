@@ -29,11 +29,11 @@
                 <table style="width: 100%; border-collapse: collapse;">
                     <tr>
                         <td style="width: 50%; vertical-align:top; font-size: 8px; ">
-                            <span style="font-size: 8px ;">Titular del Contrato: <span t-field="o.partner_id.name" /></span> <br></br>
+                            <span style="font-size: 8px ;">Titular del Contrato: <span t-field="o.partner_id.name" /></span> <br></br> <!--partner_id.name-->
                             <span style="font-size: 8px ;"> INDISUDNBDJSHJN SJSSJSJ</span> <br></br>
                             <span style="margin-right: 15px;">CI/RIF/.Nro</span>  G-200115dddsa <br></br>
                             <span>Direccion del suministro </span> <br></br>
-                                <span t-field="o.partner_id.dir_sum" />
+                                <span t-field="o.cuenta_contrato.address_suministro" /> <!--cuenta_contrato.address_suministro-->
                             <p style="width: 100%; margin-top: 3px;">Secuencia: 00000000001</p>
                         </td> 
                         <td style="position: relative;width: 50%; font-size: 8px !important; ">
