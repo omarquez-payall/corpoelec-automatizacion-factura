@@ -4,6 +4,7 @@ from odoo import models, fields, api
 
 class PartnerCodeInherit( models.Model):
     _inherit = 'res.partner'
+    country_id = fields.Many2one(string='pais', comodel_name='res,country', default=238)
     partner_code = fields.Char(string = 'Código de Interlocutor', default=lambda self: self._get_next_sequence_number() )
     titular = fields.Char(string = 'titular de pago')
     dir_fisc = fields.Text(string = 'Direccion fiscal')
