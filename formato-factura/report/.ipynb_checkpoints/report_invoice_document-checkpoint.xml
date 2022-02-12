@@ -94,7 +94,7 @@
                         <td colspan="2" style="padding-left: 3px;" >FACTURACION POR CONSUMO</td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 3px;"> Laiores voluptas! Voluptates reiciendis eius quod voluptas, libero harum facere accusamus. 30x30</td>
+                        <td style="padding-left: 3px;"><span t-field="o.cantidad_medida" />kWh(*) x <span t-field="o.cuenta_contrato.tarifa" />  30x<span t-field="o.dias_lectura" /></td> <!--tarifa, dias_lectura-->
                         <td style="text-align: right; padding-right: 5px;">49.340,00</td>
                     </tr>
         
