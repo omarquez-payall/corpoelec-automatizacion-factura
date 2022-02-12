@@ -29,8 +29,8 @@
                 <table style="width: 100%; border-collapse: collapse;">
                     <tr>
                         <td style="width: 50%; vertical-align:top; font-size: 8px; ">
-                            <span style="font-size: 8px ;">Titular del Contrato: <span t-field="o.partner_id.name" /></span> <br></br> <!--partner_id.name-->
-                            <span style="font-size: 8px ;"> INDISUDNBDJSHJN SJSSJSJ</span> <br></br>
+                            <span style="font-size: 8px ;">Titular del Contrato:</span> <br></br> <!--partner_id.name-->
+                            <span style="font-size: 8px ;">  <span t-field="o.partner_id.name" /></span> <br></br>
                             <span style="margin-right: 15px;">CI/RIF/.Nro</span>  <span t-field="o.partner_id.vat" /> <br></br>
                             <span>Direccion del suministro </span> <br></br>
                                 <span t-field="o.cuenta_contrato.address_suministro" /> <!--cuenta_contrato.address_suministro-->
@@ -40,7 +40,7 @@
                         <td style="position: relative;width: 50%; font-size: 8px !important; ">
                             <div style="position: absolute; top: 13px; width: 100%;text-align: center;align-content:center !important; ">
                                 <span>Fecha de Emisión:</span>
-                                <span style="margin-left: 4px;">01-01-2020</span>
+                                <span style="margin-left: 4px;"><span t-field="o.doc.invoice_date" /></span>
                                 <span>Hora de Emisión</span>
                                 <span style="margin-left: 4px;">14:54,00</span>
                             </div>
