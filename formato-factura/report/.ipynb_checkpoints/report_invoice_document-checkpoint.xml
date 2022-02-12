@@ -40,7 +40,7 @@
                         <td style="position: relative;width: 50%; font-size: 8px !important; ">
                             <div style="position: absolute; top: 13px; width: 100%;text-align: center;align-content:center !important; ">
                                 <span>Fecha de Emisión:</span>
-                                <span style="margin-left: 4px;"><span t-field="o.doc.invoice_date" /></span>
+                                <span style="margin-left: 4px;"><span t-field="o.invoice_date" /></span>
                                 <span>Hora de Emisión</span>
                                 <span style="margin-left: 4px;">14:54,00</span>
                             </div>
