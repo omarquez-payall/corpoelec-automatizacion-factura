@@ -95,7 +95,7 @@
                     </tr>
                     <tr>
                         <t t-foreach="o.invoice_line_ids" t-as="invoice_line_ids">
-                            <td style="padding-left: 3px;"><span t-field="o.kwh_equivalente" />kWh(*) x <span t-field="invoice_line_ids[0][0].price_unit" />  30x<span t-field="o.dias_lectura" /></td><!--kwh_equivalente, price_unit, dias_lectura-->
+                            <td style="padding-left: 3px;"><span t-field="o.kwh_equivalente" />kWh(*) x <span t-field="invoice_line_ids[0][1].price_unit" />  30x<span t-field="o.dias_lectura" /></td><!--kwh_equivalente, price_unit, dias_lectura-->
                             <td style="text-align: right; padding-right: 5px;"><span t-field="o.monto_total_consumo" /></td>
                         </t>
                     </tr>
