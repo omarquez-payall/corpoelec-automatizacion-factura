@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <record id="demo_user" model="res.partner">
+            <field name="name">SOCOPO</field>
+            <field name="company_type">company</field>
+            <field name="street">
+                2da. Avenida de Los Cortijos de Lourdes, Edificio Centro Empresarial Polar. Caracas, Venezuela.. Telf. (58 212) 202.31.11
+            </field>
+            <field name="vat">J-00041312-6</field>
+        </record>
+    </data>
+</odoo>
