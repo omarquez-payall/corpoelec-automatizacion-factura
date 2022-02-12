@@ -34,6 +34,7 @@
                             <span style="margin-right: 15px;">CI/RIF/.Nro</span>  G-200115dddsa <br></br>
                             <span>Direccion del suministro </span> <br></br>
                                 <span t-field="o.cuenta_contrato.address_suministro" /> <!--cuenta_contrato.address_suministro-->
+
                             <p style="width: 100%; margin-top: 3px;">Secuencia: 00000000001</p>
                         </td> 
                         <td style="position: relative;width: 50%; font-size: 8px !important; ">
