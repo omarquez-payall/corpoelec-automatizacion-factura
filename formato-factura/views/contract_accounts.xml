@@ -16,7 +16,7 @@
                             <group>
                                 <field name="titular"/>
                                 <field name="address_suministro"/>
-                                <field name="tarifa"/>
+                                <field name="demanda"/>
                             </group>
                             <group>
                                 <field name="fecha_creacion"/>
