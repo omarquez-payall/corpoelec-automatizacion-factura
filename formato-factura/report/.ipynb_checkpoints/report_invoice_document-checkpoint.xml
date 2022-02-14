@@ -135,13 +135,13 @@
                 <table style="font-size: 6px;border-collapse: collapse; width: 100%;">
                     <tr style="height: 20px;">
                         <td style=" text-align: center; width: 33.3%;">Demanda Asignada (KVA)</td>
-                        <td style=" text-align: center;width: 33.3%;">CNAE</td>
-                        <td style="text-align: center; width:33.3%">No. de Medidor</td>
+                        <td style=" text-align: center;width: 33.3%;">Demanda Leida</td>
+                        <td style="text-align: center; width:33.3%">Demanda Facturada</td>
                     </tr>
                     <tr>
-                        <td style="border: 1px solid black;text-align: center;">1</td>
-                        <td style="border: 1px solid black;text-align: center;">1</td>
-                        <td style="border: 1px solid black;text-align: center;">1</td>
+                        <td style="border: 1px solid black;text-align: center;"><span t-field="o.cuenta_contrato.demanda" /></td>
+                        <td style="border: 1px solid black;text-align: center;"><span t-field="o.demanda_leida" /></td>
+                        <td style="border: 1px solid black;text-align: center;"><span t-field="o.demanda_facturada" /></td>
                     </tr>
                     
                 </table>
