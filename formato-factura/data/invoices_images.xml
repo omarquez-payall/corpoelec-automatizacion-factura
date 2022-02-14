@@ -10,7 +10,7 @@
             <field name="service_icon_2" type="base64" file="formato-factura/static/img/service_icon_2.png"/>
             <field name="service_icon_3" type="base64" file="formato-factura/static/img/service_icon_3.png"/>
             <field name="footer_icon_1" type="base64" file="formato-factura/static/img/footer_icon_1.png"/>
-            <field name="footer_icon_2" type="base64" file="formato-factura/static/img/footer_icon_2.jpg"/>
+            <field name="footer_icon_2" type="base64" file="formato-factura/static/img/footer_icon_2.png"/>
             <field name="footer_icon_3" type="base64" file="formato-factura/static/img/footer_icon_3.png"/>
         </record>
     </data>
