@@ -177,7 +177,7 @@
             <span t-field="o.inicio_periodo" /> al <span t-field="o.fin_periodo" /><!--inicio_periodo y fin_periodo-->
         </div>
         <div style="position: absolute; top:3px; left: 0; font-size: 5.6px; line-height: 6px;">
-            LA SIGUIENTE LECTURA SERA APROXIMADAMENTE EL: 03.02.2021 <br></br>
+            LA SIGUIENTE LECTURA SERA APROXIMADAMENTE EL: <span t-field="o.fin_periodo" /> <br></br><!--fin_periodo-->
 
             (*) LOS PRECIOS Y CONCEPTOS INDICADOS EN ESTA FACTURASE RIGEN DE ACUERDO CON LA GACETA OFICIAL. No. 37415 DE FECHA : 05.04.2002 <br></br>
 (**) CONSUMO EQUIVALENTE KWH- CONSUMO ( KWH ) X 30 / DIAS DE FACTURACIÓN <br></br>
@@ -441,7 +441,7 @@
 
     <div style="position: relative; width: 100%; height: 130px;">
         <div style="position: absolute; top: 5px; left: 5px; font-size: 10px;">
-         Pague antes de: 26.09.2021
+         Pague antes de: <span t-field="o.invoice_date_due" /><!--invoice_date_due-->
         </div>
 
         <div style="position:absolute; width: 100%; bottom: 0 !important; font-size: 5px; align-content: center; text-align: center;">
