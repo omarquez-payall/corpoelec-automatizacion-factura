@@ -125,9 +125,9 @@
                     <td style="border: 1px solid black;text-align: center; width:30%">No. de Medidor</td>
                 </tr>
                 <tr>
-                    <td style="border: 1px solid black;text-align: center;">1</td>
-                    <td style="border: 1px solid black;text-align: center;">1</td>
-                    <td style="border: 1px solid black;text-align: center;">1</td>
+                    <td style="border: 1px solid black;text-align: center;"><span t-field="o.cuenta_contrato.tipo_tarifa" /></td><!--cuenta_contrato.tipo_tarifa-->
+                    <td style="border: 1px solid black;text-align: center;"><span t-field="o.cuenta_contrato.cnae" /></td><!--cuenta_contrato.cnae-->
+                    <td style="border: 1px solid black;text-align: center;"><span t-field="o.cuenta_contrato.medidor" /></td><!--cuenta_contrato.medidor-->
                 </tr>
                 
                 </table>
