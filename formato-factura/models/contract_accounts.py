@@ -9,6 +9,7 @@ class ContractAccounts( models.Model):
     cod = fields.Char(string = 'Codigo de cta')
     no_cta_contrato = fields.Char(string = 'Cuenta Contrato')
     cnae = fields.Char(string = 'CNAE')
+    tipo_tarifa = fields.Char(string = 'tipo de tarifa')
     medidor = fields.Char(string = 'Identificador de Medidor')
     address_suministro = fields.Text(string = 'Dirección de Suministro')
     titular = fields.Many2one(string = 'Titular', comodel_name = 'res.partner')
