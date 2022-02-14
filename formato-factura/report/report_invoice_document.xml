@@ -168,7 +168,7 @@
         <tfoot style="background-color: #ccc;">
             <tr>
               <td style="padding-left: 3px;">TOTAL CARGOS POR SERVICIO DE ELECTRICIDAD <span style="margin-left: 25%;">Bs.</span></td>
-              <td style="align-content: right; text-align: right; padding-right: 3px;">88.434,97</td> 
+              <td style="align-content: right; text-align: right; padding-right: 3px;"><span t-field="o.monto_total_demanda" /></td> <!--monto_total_demanda-->
             </tr>
           </tfoot>
     </table>
@@ -207,7 +207,7 @@
               <tr>
                   <td style="padding-right: 4px;">SUB-TOTAL</td>
                   <td style="background-color: #ccc; width: 70px;">Bs</td>
-                  <td style="background-color: #ccc;">88.32323,83</td>
+                  <td style="background-color: #ccc;"><span t-field="o.monto_total_demanda" /></td><!--monto_total_demanda-->
               </tr>
           </table>
          </div>
@@ -397,7 +397,7 @@
                     <tr>
                         <td style="padding-right: 4px;width: 77px; font-size: 6.5px; ">TOTAL ELECTRICIDAD</td>
                         <td style="background-color: #ccc; width: 30px;">Bs.</td>
-                        <td style="background-color: #ccc;text-align: right;">88.32323,83</td>
+                        <td style="background-color: #ccc;text-align: right;"><span t-field="o.monto_total_demanda" /></td><!--monto_total_demanda-->
                     </tr>
                 </table>
                </div>
@@ -454,7 +454,7 @@
                 <tr>
                     <td style="padding-right: 4px;width: 120px;">ENERGIA</td>
                     <td style="background-color: #ccc; width: 25px;">Bs.</td>
-                    <td style="background-color: #ccc;text-align: right;">88.323.000.000.000,83</td>
+                    <td style="background-color: #ccc;text-align: right;"><span t-field="o.monto_total_demanda" /></td><!--monto_total_demanda-->
                 </tr>
                 <tr>
                     <td style="padding-right: 4px;width: 120px;">OTROS SERVICIOS</td>
@@ -464,7 +464,7 @@
                 <tr>
                     <td style="padding-right: 4px;width: 120px;">TOTAL </td>
                     <td style="background-color: #ccc; width: 25px;">Bs.</td>
-                    <td style="background-color: #ccc; text-align: right;">88.323.000.000.000</td>
+                    <td style="background-color: #ccc; text-align: right;"><span t-field="o.monto_total_demanda" /></td><!--monto_total_demanda-->
                 </tr>
             </table>
            </div>
