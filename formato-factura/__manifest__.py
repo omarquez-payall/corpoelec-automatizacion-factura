@@ -29,6 +29,7 @@
         'data/account.account.template.csv',
         'data/chart_post_data.xml',
         'data/chart_template_data.xml',
+        'data/res.country.state.csv',
         'data/res_partner.xml',
         'data/contract.accounts.csv',
         'data/invoices_images.xml',
