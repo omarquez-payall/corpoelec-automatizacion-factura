@@ -341,12 +341,12 @@
           </table>
          </div>
   </div>
-   <div style="position: absolute; top: 0; right: 0; height: 140px; width: 30%; ">
+   <div style="position: absolute; top: 0; right: 0;  width: 30%; ">
         
-          <img t-if="o.images.payment_methods" t-att-src="image_data_uri(o.images.payment_methods)" alt="" style="width: 100%; height: 100%;"/>
+          <img t-if="o.images.payment_methods" t-att-src="image_data_uri(o.images.payment_methods)" alt="" style="width: 100%; "/>
       </div>
-      <div style="position: absolute; top: 146px; right: 0; height: 140px; width: 30%; ">
-          <img t-if="o.images.advertisement" t-att-src="image_data_uri(o.images.advertisement)" alt="" style="width: 100%; height: 100%;"/>
+      <div style="position: absolute; top: 126px; right: 0; height: 140px; width: 30%; ">
+          <img t-if="o.images.advertisement" t-att-src="image_data_uri(o.images.advertisement)" alt="" style="width: 100%;;"/>
       </div>  
   
   </div>
