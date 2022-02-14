@@ -375,13 +375,13 @@
             </div>
             <table style="position: absolute; bottom: 26px; left: 20px; border-collapse: collapse; font-size: 8px !important;">
                 <tr>
-                    <td>Servicio de Electricidad</td> <td>Bs.</td>
+                    <td>Servicio de Electricidad</td> <td>Bs.<span t-field="o.subtotal_electricidad" /></td><!--subtotal_electricidad-->
                 </tr>
                 <tr>    
                     <td>Otros Cargos y Créditos</td> <td>Bs.</td>
                 </tr>
                 <tr>
-                    <td>Total Base Imponible </td> <td>Bs.</td>
+                    <td>Total Base Imponible </td> <td>Bs.<span t-field="o.subtotal_electricidad" /></td><!--subtotal_electricidad-->
                 </tr>
                 <tr>
                     <td>Monto Exento o Exonerado de IVA </td> <td style="font-weight: bold;">(Bs.0,00)</td>
@@ -415,7 +415,7 @@
 
         <table style="position: absolute;  bottom: 26px; left: 20px; border-collapse: collapse; font-size: 8px !important;">
             <tr>
-                <td>Eléctricidad, Saldo Vencido</td> <td style="vertical-align:top; padding-left: 5px;">Bs.</td>
+                <td>Eléctricidad, Saldo Vencido</td> <td style="vertical-align:top; padding-left: 5px;">Bs.<span t-field="o.saldo_vencido" /></td><!--saldo_vencido-->
             </tr>
             <tr>
                 <td>Aseo, Saldo Vencido</td> <td style="padding-left: 5px;">Bs.</td>
@@ -428,7 +428,7 @@
                 <tr>
                     <td style="padding-right: 4px;width: 85px;">TOTAL SALDO VENCIDO</td>
                     <td style="background-color: #ccc; width: 25px;">Bs.</td>
-                    <td style="background-color: #ccc;text-align: right;">88.32323,83</td>
+                    <td style="background-color: #ccc;text-align: right;"><span t-field="o.saldo_vencido" /></td><!--saldo_vencido-->
                 </tr>
             </table>
            </div>
