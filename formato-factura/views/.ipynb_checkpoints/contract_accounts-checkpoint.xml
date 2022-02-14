@@ -36,7 +36,7 @@
                 <tree string="Contract Accounts List"> 
                     <field name="no_cta_contrato"/>
                     <field name="medidor"/>
-                    <field name="tarifa"/>
+                    <field name="demanda"/>
                 </tree> 
             </field>
         </record>
