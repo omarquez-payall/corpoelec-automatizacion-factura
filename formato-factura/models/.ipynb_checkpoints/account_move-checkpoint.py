@@ -5,7 +5,7 @@ import datetime
 
 class AccountMove( models.Model):
     _inherit = 'account.move'
-    name_dos = fields.Char( string = 'name',readonly=True, required = True, index=True, default=lambda self: self._get_next_seq_fact())
+    name_dos = fields.Char( string = 'name',readonly=True, required = True, index=True)
 
     #------------------- Relacion con los servicios ------------------
     No_Contable = fields.Char( string = 'No Doc Contable',readonly=True, required = True, index=True, default=lambda self: self._get_next_sequence_number_contable())
@@ -54,11 +54,10 @@ class AccountMove( models.Model):
                 sequence = self.env['ir.sequence'].search([('code','=', 'seq_fact')])
                 partner = self.env['res.partner'].search([('id','=', record.partner_id)])
                 state = self.env['res.country.state'].search([('id','=', partner.state_id)])
-                next = '/' + state.short_code + '/' + sequence.get_next_char(sequence.number_next_actual)
-                return next
+                self.name_dos = '/' + state.short_code + '/' + sequence.get_next_char(sequence.number_next_actual)
             else:
                 sequence = self.env['ir.sequence'].search([('code','=', 'seq_fact')])
-                next = sequence.get_next_char(sequence.number_next_actual)
+                self.name_dos = sequence.get_next_char(sequence.number_next_actual)
                 return next
     
     @api.model
