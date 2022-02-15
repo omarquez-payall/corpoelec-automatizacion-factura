@@ -55,7 +55,7 @@ class AccountMove( models.Model):
             state = self.env['res.country.state'].search([('id','=',partner.state_id)])
             next = state.short_code + sequence.get_next_char(sequence.number_next_actual)
             return next
-        else
+        else:
             next = sequence.get_next_char(sequence.number_next_actual)
             return next
     
