@@ -42,9 +42,17 @@ class AccountMove( models.Model):
     def create(self, vals):
         vals['No_Contable'] = self.env['ir.sequence'].next_by_code('Seq_No_Contable')
         vals['No_Registro'] = self.env['ir.sequence'].next_by_code('Seq_No_Registro')
+        vals['No_Registro'] = self.env['ir.sequence'].next_by_code('seq_fact')
         result = super(AccountMove, self).create(vals)
         return result 
 
+    @api.model
+    def _get_next_seq_fact(self):
+        sequence = self.env['ir.sequence'].search([('code','=', 'seq_fact')])
+        edo = self.env['res.country.state'].search([('id','=',self.state_id)])
+        next = sequence.get_next_char(sequence.number_next_actual)
+        self.name = 'SERIECC' + edo.short_code + '163' + next
+    
     @api.model
     def _get_next_sequence_number_contable(self):
         sequence = self.env['ir.sequence'].search([('code','=', 'Seq_No_Contable')])

@@ -62,5 +62,12 @@
             <field name="padding">6</field>
             <field name="company_id" eval="False"/>
         </record>
+        <record id="no_fact" model="ir.sequence">
+            <field name="name">Secuencia unica de factura</field>
+            <field name="code">seq_fact</field>
+            <field name="prefix"></field>
+            <field name="padding">15</field>
+            <field name="company_id" eval="False"/>
+        </record>
     </data>
 </odoo>
