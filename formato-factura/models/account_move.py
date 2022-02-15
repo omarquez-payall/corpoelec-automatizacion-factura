@@ -5,7 +5,7 @@ import datetime
 
 class AccountMove( models.Model):
     _inherit = 'account.move'
-    name = fields.Char( string = 'name',readonly=True, required = True, index=True, default=lambda self: self._get_next_seq_fact())
+    name = fields.Char( string = 'name',readonly=True, required = True, index=True )
 
     #------------------- Relacion con los servicios ------------------
     No_Contable = fields.Char( string = 'No Doc Contable',readonly=True, required = True, index=True, default=lambda self: self._get_next_sequence_number_contable())
