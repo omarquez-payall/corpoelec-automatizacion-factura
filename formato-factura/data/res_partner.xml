@@ -6,7 +6,6 @@
             <field name="company_type">company</field>
             <field name="dir_fisc">Socopó es una ciudad ubicada en el occidente venezolano, es la capital del municipio Antonio José de Sucre en el estado Barinas (Venezuela)</field>
             <field name="vat">J-00041312-6</field>
-            <field name="state_id">__export__.res_country_state_1393_02895856</field>
         </record>
     </data>
 </odoo>
