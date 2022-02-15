@@ -16,6 +16,9 @@
                         attrs="{'invisible': ['|', '|', ('state', '!=', 'draft'), ('move_type', '=', 'entry'),('cargar_productos','=',True)]}"
                     />
                 </header>
+                <xpath expr="//field[@name='name']" position="replace"> 
+                    <field name="name_dos"/>
+                </xpath>
                 <div class="oe_title" position="inside">
                     <group>
                         <group>

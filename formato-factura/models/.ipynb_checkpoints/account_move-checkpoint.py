@@ -5,7 +5,7 @@ import datetime
 
 class AccountMove( models.Model):
     _inherit = 'account.move'
-    name = fields.Char( string = 'name',readonly=True, required = True, index=True, default=lambda self: self._get_next_seq_fact())
+    name_dos = fields.Char( string = 'name',readonly=True, required = True, index=True, default=lambda self: self._get_next_seq_fact())
 
     #------------------- Relacion con los servicios ------------------
     No_Contable = fields.Char( string = 'No Doc Contable',readonly=True, required = True, index=True, default=lambda self: self._get_next_sequence_number_contable())
@@ -43,7 +43,7 @@ class AccountMove( models.Model):
     def create(self, vals):
         vals['No_Contable'] = self.env['ir.sequence'].next_by_code('Seq_No_Contable')
         vals['No_Registro'] = self.env['ir.sequence'].next_by_code('Seq_No_Registro')
-        vals['name'] = self.env['ir.sequence'].next_by_code('seq_fact')
+        vals['name_dos'] = self.env['ir.sequence'].next_by_code('seq_fact')
         result = super(AccountMove, self).create(vals)
         return result 
 
