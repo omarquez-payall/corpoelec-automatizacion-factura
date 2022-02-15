@@ -344,7 +344,7 @@
         
           <img t-if="o.images.payment_methods" t-att-src="image_data_uri(o.images.payment_methods)" alt="" style="width: 100%; "/>
       </div>
-      <div style="position: absolute; top: 130px; right: 0; height: 140px; width: 30%; ">
+      <div style="position: absolute; top: 133px; right: 0; height: 140px; width: 30%; ">
           <img t-if="o.images.advertisement" t-att-src="image_data_uri(o.images.advertisement)" alt="" style="width: 100%;;"/>
       </div>  
   
