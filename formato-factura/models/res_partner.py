@@ -9,7 +9,6 @@ class PartnerCodeInherit( models.Model):
     titular = fields.Char(string = 'titular de pago')
     dir_fisc = fields.Char(string = 'Direccion fiscal')
     contract_accounts = fields.One2many(string = 'Cuentas contrato', comodel_name = 'contract.accounts', inverse_name = 'titular')
-    print('country_id')
     
     @api.model
     def create(self, vals):
@@ -23,6 +22,7 @@ class PartnerCodeInherit( models.Model):
             sequence = self.env['ir.sequence'].search([('code','=','partner_code_seq')])
             next= sequence.get_next_char(sequence.number_next_actual)
             return next
+        
     @api.model
     def _get_default_country(self):
         country = self.env['res.country'].search([('code','=','VE')])

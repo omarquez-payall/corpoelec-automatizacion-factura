@@ -5,6 +5,7 @@ import datetime
 
 class AccountMove( models.Model):
     _inherit = 'account.move'
+    name = fields.Char( string = 'name',readonly=True, required = True, index=True, default=lambda self: self._get_next_seq_fact())
 
     #------------------- Relacion con los servicios ------------------
     No_Contable = fields.Char( string = 'No Doc Contable',readonly=True, required = True, index=True, default=lambda self: self._get_next_sequence_number_contable())
@@ -42,9 +43,16 @@ class AccountMove( models.Model):
     def create(self, vals):
         vals['No_Contable'] = self.env['ir.sequence'].next_by_code('Seq_No_Contable')
         vals['No_Registro'] = self.env['ir.sequence'].next_by_code('Seq_No_Registro')
+        vals['name'] = self.env['ir.sequence'].next_by_code('seq_fact')
         result = super(AccountMove, self).create(vals)
         return result 
 
+    @api.model
+    def _get_next_seq_fact(self):
+        sequence = self.env['ir.sequence'].search([('code','=', 'seq_fact')])
+        next = sequence.get_next_char(sequence.number_next_actual)
+        return next
+    
     @api.model
     def _get_next_sequence_number_contable(self):
         sequence = self.env['ir.sequence'].search([('code','=', 'Seq_No_Contable')])

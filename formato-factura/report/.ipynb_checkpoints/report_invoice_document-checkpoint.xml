@@ -94,8 +94,10 @@
                         <td colspan="2" style="padding-left: 3px;" >FACTURACION POR CONSUMO</td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 3px;"> Laiores voluptas! Voluptates reiciendis eius quod voluptas, libero harum facere accusamus. 30x30</td>
-                        <td style="text-align: right; padding-right: 5px;">49.340,00</td>
+                        <t t-foreach="o.invoice_line_ids" t-as="invoice_line_ids">
+                            <td style="padding-left: 3px;"><span t-field="o.kwh_equivalente" />kWh(*) x <span t-field="invoice_line_ids.price_unit" />  30x<span t-field="o.dias_lectura" /></td><!--kwh_equivalente, price_unit, dias_lectura-->
+                            <td style="text-align: right; padding-right: 5px;"><span t-field="o.monto_total_consumo" /></td>
+                        </t>
                     </tr>
         
                     <tr>
@@ -123,9 +125,9 @@
                     <td style="border: 1px solid black;text-align: center; width:30%">No. de Medidor</td>
                 </tr>
                 <tr>
-                    <td style="border: 1px solid black;text-align: center;">1</td>
-                    <td style="border: 1px solid black;text-align: center;">1</td>
-                    <td style="border: 1px solid black;text-align: center;">1</td>
+                    <td style="border: 1px solid black;text-align: center;"><span t-field="o.cuenta_contrato.tipo_tarifa" /></td><!--cuenta_contrato.tipo_tarifa-->
+                    <td style="border: 1px solid black;text-align: center;"><span t-field="o.cuenta_contrato.cnae" /></td><!--cuenta_contrato.cnae-->
+                    <td style="border: 1px solid black;text-align: center;"><span t-field="o.cuenta_contrato.medidor" /></td><!--cuenta_contrato.medidor-->
                 </tr>
                 
                 </table>
@@ -133,13 +135,13 @@
                 <table style="font-size: 6px;border-collapse: collapse; width: 100%;">
                     <tr style="height: 20px;">
                         <td style=" text-align: center; width: 33.3%;">Demanda Asignada (KVA)</td>
-                        <td style=" text-align: center;width: 33.3%;">CNAE</td>
-                        <td style="text-align: center; width:33.3%">No. de Medidor</td>
+                        <td style=" text-align: center;width: 33.3%;">Demanda Leida</td>
+                        <td style="text-align: center; width:33.3%">Demanda Facturada</td>
                     </tr>
                     <tr>
-                        <td style="border: 1px solid black;text-align: center;">1</td>
-                        <td style="border: 1px solid black;text-align: center;">1</td>
-                        <td style="border: 1px solid black;text-align: center;">1</td>
+                        <td style="border: 1px solid black;text-align: center;"><span t-field="o.cuenta_contrato.demanda" /></td><!--cuenta_contrato.demanda-->
+                        <td style="border: 1px solid black;text-align: center;"><span t-field="o.demanda_leida" /></td><!--demanda_leida-->
+                        <td style="border: 1px solid black;text-align: center;"><span t-field="o.demanda_facturada" /></td><!--demanda_facturada-->
                     </tr>
                     
                 </table>
@@ -152,11 +154,11 @@
                         <td style="text-align: center; width:20%">Cantidad  Medida</td>
                     </tr>
                     <tr>
-                        <td style="border: 1px solid black;text-align: center;">1</td>
-                        <td style="border: 1px solid black;text-align: center;">1</td>
-                        <td style="border: 1px solid black;text-align: center;">1</td>
-                        <td style="border: 1px solid black;text-align: center;">1</td>
-                        <td style="border: 1px solid black;text-align: center;">1</td>
+                        <td style="border: 1px solid black;text-align: center;">CONSUMO</td>
+                        <td style="border: 1px solid black;text-align: center;"><span t-field="o.lectura_actual" /></td><!--lectura_actual-->
+                        <td style="border: 1px solid black;text-align: center;"><span t-field="o.lectura_anterior" /></td><!--lectura_anterior-->
+                        <td style="border: 1px solid black;text-align: center;"><span t-field="o.factor_multiplicador" /></td><!--factor_multiplicador-->
+                        <td style="border: 1px solid black;text-align: center;"><span t-field="o.cantidad_medida" /></td><!--cantidad_medida-->
                     </tr>
                     
                 </table>
@@ -166,17 +168,17 @@
         <tfoot style="background-color: #ccc;">
             <tr>
               <td style="padding-left: 3px;">TOTAL CARGOS POR SERVICIO DE ELECTRICIDAD <span style="margin-left: 25%;">Bs.</span></td>
-              <td style="align-content: right; text-align: right; padding-right: 3px;">88.434,97</td> 
+              <td style="align-content: right; text-align: right; padding-right: 3px;"><span t-field="o.monto_total_demanda" /></td> <!--monto_total_demanda-->
             </tr>
           </tfoot>
     </table>
     <div style="position: relative; width: 100%; height: 25px ;">
         <div style="position: absolute; right:0; top: 5px; background-color: #E7E3E3; /* border: 1px solid black;  */ padding: 5px; text-align: center; align-content: center; font-size: 5.5px; width: 20%; font-weight: bold;">
             PERIODO DE FACTURACION DE ENERGIA <br></br>
-            03.06.2021 al 02.07.2021
+            <span t-field="o.inicio_periodo" /> al <span t-field="o.fin_periodo" /><!--inicio_periodo y fin_periodo-->
         </div>
         <div style="position: absolute; top:3px; left: 0; font-size: 5.6px; line-height: 6px;">
-            LA SIGUIENTE LECTURA SERA APROXIMADAMENTE EL: 03.02.2021 <br></br>
+            LA SIGUIENTE LECTURA SERA APROXIMADAMENTE EL: <span t-field="o.fin_periodo" /> <br></br><!--fin_periodo-->
 
             (*) LOS PRECIOS Y CONCEPTOS INDICADOS EN ESTA FACTURASE RIGEN DE ACUERDO CON LA GACETA OFICIAL. No. 37415 DE FECHA : 05.04.2002 <br></br>
 (**) CONSUMO EQUIVALENTE KWH- CONSUMO ( KWH ) X 30 / DIAS DE FACTURACIÓN <br></br>
@@ -205,7 +207,7 @@
               <tr>
                   <td style="padding-right: 4px;">SUB-TOTAL</td>
                   <td style="background-color: #ccc; width: 70px;">Bs</td>
-                  <td style="background-color: #ccc;">88.32323,83</td>
+                  <td style="background-color: #ccc;"><span t-field="o.monto_total_demanda" /></td><!--monto_total_demanda-->
               </tr>
           </table>
          </div>
@@ -374,13 +376,13 @@
             </div>
             <table style="position: absolute; bottom: 26px; left: 20px; border-collapse: collapse; font-size: 8px !important;">
                 <tr>
-                    <td>Servicio de Electricidad</td> <td>Bs.</td>
+                    <td>Servicio de Electricidad</td> <td>Bs.<span t-field="o.subtotal_electricidad" /></td><!--subtotal_electricidad-->
                 </tr>
                 <tr>    
                     <td>Otros Cargos y Créditos</td> <td>Bs.</td>
                 </tr>
                 <tr>
-                    <td>Total Base Imponible </td> <td>Bs.</td>
+                    <td>Total Base Imponible </td> <td>Bs.<span t-field="o.subtotal_electricidad" /></td><!--subtotal_electricidad-->
                 </tr>
                 <tr>
                     <td>Monto Exento o Exonerado de IVA </td> <td style="font-weight: bold;">(Bs.0,00)</td>
@@ -395,7 +397,7 @@
                     <tr>
                         <td style="padding-right: 4px;width: 77px; font-size: 6.5px; ">TOTAL ELECTRICIDAD</td>
                         <td style="background-color: #ccc; width: 30px;">Bs.</td>
-                        <td style="background-color: #ccc;text-align: right;">88.32323,83</td>
+                        <td style="background-color: #ccc;text-align: right;"><span t-field="o.monto_total_demanda" /></td><!--monto_total_demanda-->
                     </tr>
                 </table>
                </div>
@@ -414,7 +416,7 @@
 
         <table style="position: absolute;  bottom: 26px; left: 20px; border-collapse: collapse; font-size: 8px !important;">
             <tr>
-                <td>Eléctricidad, Saldo Vencido</td> <td style="vertical-align:top; padding-left: 5px;">Bs.</td>
+                <td>Eléctricidad, Saldo Vencido</td> <td style="vertical-align:top; padding-left: 5px;">Bs.<span t-field="o.saldo_vencido" /></td><!--saldo_vencido-->
             </tr>
             <tr>
                 <td>Aseo, Saldo Vencido</td> <td style="padding-left: 5px;">Bs.</td>
@@ -427,7 +429,7 @@
                 <tr>
                     <td style="padding-right: 4px;width: 85px;">TOTAL SALDO VENCIDO</td>
                     <td style="background-color: #ccc; width: 25px;">Bs.</td>
-                    <td style="background-color: #ccc;text-align: right;">88.32323,83</td>
+                    <td style="background-color: #ccc;text-align: right;"><span t-field="o.saldo_vencido" /></td><!--saldo_vencido-->
                 </tr>
             </table>
            </div>
@@ -440,7 +442,7 @@
 
     <div style="position: relative; width: 100%; height: 130px;">
         <div style="position: absolute; top: 5px; left: 5px; font-size: 10px;">
-         Pague antes de: 26.09.2021
+         Pague antes de: <span t-field="o.invoice_date_due" /><!--invoice_date_due-->
         </div>
 
         <div style="position:absolute; width: 100%; bottom: 0 !important; font-size: 5px; align-content: center; text-align: center;">
@@ -452,7 +454,7 @@
                 <tr>
                     <td style="padding-right: 4px;width: 120px;">ENERGIA</td>
                     <td style="background-color: #ccc; width: 25px;">Bs.</td>
-                    <td style="background-color: #ccc;text-align: right;">88.323.000.000.000,83</td>
+                    <td style="background-color: #ccc;text-align: right;"><span t-field="o.monto_total_demanda" /></td><!--monto_total_demanda-->
                 </tr>
                 <tr>
                     <td style="padding-right: 4px;width: 120px;">OTROS SERVICIOS</td>
@@ -462,7 +464,7 @@
                 <tr>
                     <td style="padding-right: 4px;width: 120px;">TOTAL </td>
                     <td style="background-color: #ccc; width: 25px;">Bs.</td>
-                    <td style="background-color: #ccc; text-align: right;">88.323.000.000.000</td>
+                    <td style="background-color: #ccc; text-align: right;"><span t-field="o.monto_total_demanda" /></td><!--monto_total_demanda-->
                 </tr>
             </table>
            </div>
