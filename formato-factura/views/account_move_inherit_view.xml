@@ -17,6 +17,7 @@
                     />
                 </header>
                 <xpath expr="//field[@name='name']" position="replace"> 
+                    <field name="name_dos" invisible="1"/>
                     <field name="name_dos"/>
                 </xpath>
                 <div class="oe_title" position="inside">
