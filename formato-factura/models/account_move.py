@@ -50,10 +50,9 @@ class AccountMove( models.Model):
     @api.model
     def _get_next_seq_fact(self):
         sequence = self.env['ir.sequence'].search([('code','=', 'seq_fact')])
-        edo = self.env['res.country.state'].search([('id','=',self.state_id)])
+        edo = self.env['res.country.state'].search([('id','=',self.partner_id.state_id)])
         next = sequence.get_next_char(sequence.number_next_actual)
-        seq = 'SERIECC' + edo.short_code + '163' + next
-        return seq
+        return next
     
     @api.model
     def _get_next_sequence_number_contable(self):

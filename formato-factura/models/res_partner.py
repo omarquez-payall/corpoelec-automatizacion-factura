@@ -31,5 +31,5 @@ class PartnerCodeInherit( models.Model):
     
     @api.model
     def _get_default_state(self):
-        state = self.env['res.country.state'].search([('short_code','=','DCA')])
+        state = self.env['res.country.state'].search([('short_code','=','FAL')])
         return state
