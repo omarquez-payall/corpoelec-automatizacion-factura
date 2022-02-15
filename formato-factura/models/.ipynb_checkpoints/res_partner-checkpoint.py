@@ -5,7 +5,6 @@ from odoo import models, fields, api
 class PartnerCodeInherit( models.Model):
     _inherit = 'res.partner'
     country_id = fields.Many2one(comodel_name='res.country', string='Country', default=lambda self: self._get_default_country())
-    state_id = fields.Many2one(comodel_name='res.country.state', string='state', default=lambda self: self._get_default_state())
     partner_code = fields.Char(string = 'Código de Interlocutor', default=lambda self: self._get_next_sequence_number() )
     titular = fields.Char(string = 'titular de pago')
     dir_fisc = fields.Text(string = 'Direccion fiscal')
@@ -28,8 +27,3 @@ class PartnerCodeInherit( models.Model):
     def _get_default_country(self):
         country = self.env['res.country'].search([('code','=','VE')])
         return country
-    
-    @api.model
-    def _get_default_state(self):
-        state = self.env['res.country.state'].search([('short_code','=','FAL')])
-        return state
