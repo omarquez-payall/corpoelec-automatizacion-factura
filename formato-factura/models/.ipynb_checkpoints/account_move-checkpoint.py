@@ -47,7 +47,7 @@ class AccountMove( models.Model):
         result = super(AccountMove, self).create(vals)
         return result 
 
-    @api.model
+    @api.onchange('partner_id')
     def _get_next_seq_fact(self):
         sequence = self.env['ir.sequence'].search([('code','=', 'seq_fact')])
         partner = self.env['res.partner'].search([('id','=',self.partner_id.id)])
