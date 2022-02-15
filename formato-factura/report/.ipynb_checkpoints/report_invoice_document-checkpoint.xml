@@ -45,7 +45,7 @@
                                 <span style="margin-left: 4px;">14:54,00</span>
                             </div>
                             
-                            <p style="width: 100%; text-align: center; font-size: 11px; margin-top: -3.5px;">No. Factura: <span t-field="o.name" /></p><!--name-->
+                            <p style="width: 100%; text-align: center; font-size: 11px; margin-top: -3.5px;">No. Factura: <span t-field="o.name_dos" /></p><!--name-->
                             Titular del Pago:  Direccion de Notificacion/Fiscal <br></br>
                             <span t-field="o.partner_id.titular" /><br></br><!--partner_id.titular-->
                             <span t-field="o.partner_id.dir_fisc" /><!--partner_id.dir_fisc-->
