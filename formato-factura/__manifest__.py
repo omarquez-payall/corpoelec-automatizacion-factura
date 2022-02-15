@@ -44,7 +44,7 @@
         'views/contract_accounts_inherit.xml',
         'report/external_layout_background_inherit.xml',
         'report/report_invoice_document.xml',
-        'data/res.country.state.csv',
+        #'data/res.country.state.csv',
     ],
     # only loaded in demonstration mode
     'demo': [
