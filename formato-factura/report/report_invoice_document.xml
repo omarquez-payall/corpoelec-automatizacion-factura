@@ -33,7 +33,7 @@
                             <span style="font-size: 8px ;">  <span t-field="o.partner_id.name" /></span> <br></br><!--partner_id.name-->
                             <span style="margin-right: 15px;">CI/RIF/.Nro</span>  <span t-field="o.partner_id.vat" /> <br></br><!--partner_id.vat-->
                             <span>Direccion del suministro </span> <br></br>
-                                <span t-field="o.cuenta_contrato.address_suministro" /> <!--cuenta_contrato.address_suministro-->
+                                <span t-field="o.address_suministro" /> <!--cuenta_contrato.address_suministro-->
 
                             <p style="width: 100%; margin-top: 3px;">Secuencia: 00000000001</p>
                         </td> 
@@ -125,9 +125,9 @@
                     <td style="border: 1px solid black;text-align: center; width:30%">No. de Medidor</td>
                 </tr>
                 <tr>
-                    <td style="border: 1px solid black;text-align: center;"><span t-field="o.cuenta_contrato.tipo_tarifa" /></td><!--cuenta_contrato.tipo_tarifa-->
-                    <td style="border: 1px solid black;text-align: center;"><span t-field="o.cuenta_contrato.cnae" /></td><!--cuenta_contrato.cnae-->
-                    <td style="border: 1px solid black;text-align: center;"><span t-field="o.cuenta_contrato.medidor" /></td><!--cuenta_contrato.medidor-->
+                    <td style="border: 1px solid black;text-align: center;"><span t-field="o.tipo_tarifa" /></td><!--cuenta_contrato.tipo_tarifa-->
+                    <td style="border: 1px solid black;text-align: center;"><span t-field="o.cnae" /></td><!--cuenta_contrato.cnae-->
+                    <td style="border: 1px solid black;text-align: center;"><span t-field="o.medidor" /></td><!--cuenta_contrato.medidor-->
                 </tr>
                 
                 </table>
@@ -139,7 +139,7 @@
                         <td style="text-align: center; width:33.3%">Demanda Facturada</td>
                     </tr>
                     <tr>
-                        <td style="border: 1px solid black;text-align: center;"><span t-field="o.cuenta_contrato.demanda" /></td><!--cuenta_contrato.demanda-->
+                        <td style="border: 1px solid black;text-align: center;"><span t-field="o.demanda" /></td><!--cuenta_contrato.demanda-->
                         <td style="border: 1px solid black;text-align: center;"><span t-field="o.demanda_leida" /></td><!--demanda_leida-->
                         <td style="border: 1px solid black;text-align: center;"><span t-field="o.demanda_facturada" /></td><!--demanda_facturada-->
                     </tr>
