@@ -25,9 +25,8 @@
                     </group>
                 </div>
                 <xpath expr="//field[@name='payment_reference']" position="after"> 
-                    <field 
-                        name="no_cta_contrato"
-                    />
+                    <field name="no_cta_contrato"/>
+                    <field name="address_suministro"/>
                     <field name="dias_lectura" />  
                 </xpath>
                 <xpath expr="//field[@name='invoice_date']" position="after"> 
@@ -49,7 +48,6 @@
                             <group>
                                 <field name="cnae"/>
                                 <field name="medidor"/>
-                                <field name="address_suministro"/>
                             </group>
                             <group>
                                 <field name="demanda"/>
