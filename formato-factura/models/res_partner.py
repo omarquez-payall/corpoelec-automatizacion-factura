@@ -8,7 +8,7 @@ class PartnerCodeInherit( models.Model):
     partner_code = fields.Char(string = 'Código de Interlocutor', default=lambda self: self._get_next_sequence_number() )
     titular = fields.Char(string = 'titular de pago')
     dir_fisc = fields.Text(string = 'Direccion fiscal')
-    contract_accounts = fields.One2many(string = 'Cuentas contrato', comodel_name = 'contract.accounts', inverse_name = 'titular')
+    #contract_accounts = fields.One2many(string = 'Cuentas contrato', comodel_name = 'contract.accounts', inverse_name = 'titular')
     
     @api.model
     def create(self, vals):
