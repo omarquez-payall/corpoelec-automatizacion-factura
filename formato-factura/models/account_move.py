@@ -5,6 +5,8 @@ import datetime
 
 class AccountMove( models.Model):
     _inherit = 'account.move'
+    name = fields.Char( string = 'Number',readonly=True, required = True, index=True, default=lambda self: self._get_seq_fact())
+    
     #------------------- Relacion con los servicios ------------------
     No_Contable = fields.Char( string = 'No Doc Contable',readonly=True, required = True, index=True, default=lambda self: self._get_next_sequence_number_contable())
     No_Registro = fields.Char( string = 'No Registro',readonly=True, required = True, index=True, default=lambda self: self._get_next_sequence_number_registro())
@@ -17,6 +19,7 @@ class AccountMove( models.Model):
     address_suministro = fields.Char(string = 'Dirección de Suministro')
     demanda = fields.Float(string = 'Demanda asignada')
     fecha_creacion = fields.Date(string = 'Fecha de creación')
+    #------------------- CUENTA CONTRATO ------------------
     
     inicio_periodo = fields.Date(string='Inicio período', default=fields.Date.today, store=True)
     fin_periodo = fields.Date(string='Fin período', default=fields.Date.today, store=True)
@@ -56,6 +59,12 @@ class AccountMove( models.Model):
     def _get_next_sequence_number_registro(self):
         sequence = self.env['ir.sequence'].search([('code','=', 'Seq_No_Registro')])
         next = sequence.get_next_char(sequence.number_next_actual)
+        return next
+    
+    @api.model
+    def _get_seq_fact(self):
+        sequence = self.env['ir.sequence'].search([('code','=', 'seq_fact')])
+        next = 'MMGB' + sequence.get_next_char(sequence.number_next_actual)
         return next
 
     @api.onchange('partner_id')
