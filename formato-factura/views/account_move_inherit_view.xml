@@ -49,7 +49,7 @@
                             <group>
                                 <field name="cnae"/>
                                 <field name="medidor"/>
-                                <pre><field name="address_suministro"/></pre>
+                                <field name="address_suministro"/>
                             </group>
                             <group>
                                 <field name="demanda"/>
