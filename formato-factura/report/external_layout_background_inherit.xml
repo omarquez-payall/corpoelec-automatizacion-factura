@@ -18,7 +18,7 @@
                                 <td style="width: 43%;  height: 100%; /* border: 1px solid red; */ align-content: center; text-align: center;">
                                     <span style="font-size: 8px ;">No de Cuenta Contrato / NIC</span> <br></br>
                                     <div style="border: 1px solid black; height: 25px; width: 80%; margin-left: 10% ; align-content: center; padding: 2px; padding-bottom: 10px!important;">
-                                        <span t-field="o.cuenta_contrato.no_cta_contrato" /><!--cuenta_contrato.no_cta_contrato-->
+                                        <span t-field="o.no_cta_contrato" /><!--cuenta_contrato.no_cta_contrato-->
                                     </div>
                                     <span style="font-size: 6px ;">INDIQUE ESTE NUMERO CUANDO SE COMUNIQUE CON NOSOTROS</span> 
                                 </td>
