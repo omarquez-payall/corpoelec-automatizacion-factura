@@ -14,7 +14,7 @@ class AccountMove( models.Model):
     cnae = fields.Char(string = 'CNAE')
     tipo_tarifa = fields.Char(string = 'tipo de tarifa')
     medidor = fields.Char(string = 'Identificador de Medidor')
-    address_suministro = fields.Text(string = 'Dirección de Suministro')
+    address_suministro = fields.Char(string = 'Dirección de Suministro')
     demanda = fields.Float(string = 'Demanda asignada')
     fecha_creacion = fields.Date(string = 'Fecha de creación')
     
