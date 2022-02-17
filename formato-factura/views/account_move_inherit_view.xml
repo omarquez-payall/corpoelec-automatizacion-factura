@@ -50,7 +50,6 @@
                                 <field name="address_suministro"/>
                             </group>
                             <group>
-                                <field name="demanda"/>
                                 <field name="tipo_tarifa"/>
                                 <field name="fecha_creacion"/>
                             </group>
