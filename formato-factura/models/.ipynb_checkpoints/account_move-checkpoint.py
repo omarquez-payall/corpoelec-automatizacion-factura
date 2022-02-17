@@ -51,21 +51,24 @@ class AccountMove( models.Model):
     
     @api.model
     def _get_next_sequence_number_contable(self):
-        sequence = self.env['ir.sequence'].search([('code','=', 'Seq_No_Contable')])
-        next = sequence.get_next_char(sequence.number_next_actual)
-        return next
+        for record in self:
+            sequence = self.env['ir.sequence'].search([('code','=', 'Seq_No_Contable')])
+            next = sequence.get_next_char(sequence.number_next_actual)
+            return next
 
     @api.model
     def _get_next_sequence_number_registro(self):
-        sequence = self.env['ir.sequence'].search([('code','=', 'Seq_No_Registro')])
-        next = sequence.get_next_char(sequence.number_next_actual)
-        return next
+        for record in self:
+            sequence = self.env['ir.sequence'].search([('code','=', 'Seq_No_Registro')])
+            next = sequence.get_next_char(sequence.number_next_actual)
+            return next
     
     @api.model
     def _get_seq_fact(self):
-        sequence = self.env['ir.sequence'].search([('code','=', 'seq_fact')])
-        next = 'MMGB' + sequence.get_next_char(sequence.number_next_actual)
-        return next
+        for record in self:
+            sequence = self.env['ir.sequence'].search([('code','=', 'seq_fact')])
+            next = 'MMGB' + sequence.get_next_char(sequence.number_next_actual)
+            return next
 
     @api.onchange('partner_id')
     def _filtrar_cuentas_contrato(self):
