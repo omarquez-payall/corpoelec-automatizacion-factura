@@ -25,19 +25,24 @@
     'data': [
         'security/invoices_images_security.xml',
         'security/ir.model.access.csv',
-        'data/invoices_images.xml',
+        'data/chart_data.xml',
+        'data/account.account.template.csv',
         'data/product.xml',
+        'data/chart_post_data.xml',
+        'data/chart_template_data.xml',
+        'data/res_partner.xml',
+        'data/invoices_images.xml',
         'views/product_template_inherit_view.xml',
         'views/invoice_images.xml',
         'views/invoice_images_inherit.xml',
         'views/account_move_inherit_view.xml',
         'views/account_move_electricidad_inherit_view.xml',
-        'views/otros_servicios_account_move_inherit_view.xml',
         'views/res_partner_inherit.xml',
         'views/linea_servicio_view.xml',
-        'views/contract_accounts.xml',
         'report/external_layout_background_inherit.xml',
         'report/report_invoice_document.xml',
+        'data/res.country.state.csv',
+
     ],
     # only loaded in demonstration mode
     'demo': [

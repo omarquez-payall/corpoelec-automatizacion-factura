@@ -13,10 +13,14 @@
                     <field name="interlocutor_id" invisible="1"/> 
                 </xpath>
                 <notebook>
-                    <page string="Cuentas contrato asociadas" >
-                        <field name="contract_accounts"/>
+                    <page string ="Direccion Fiscal">
+                        <group>
+                            <field name="dir_fisc" />
+                        </group>
                     </page>
                 </notebook>
+                
+
             </field>
         </record>
 

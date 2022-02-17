@@ -10,15 +10,16 @@
                                 <td style="width: 40%; height: 100%; /* border: 1px solid red; */">
                                   <div style="width: 50%;"><img t-if="o.images.full_logo" t-att-src="image_data_uri(o.images.full_logo)" style="width: 100%;" alt="Logo"/></div>  <br></br>
                                   <span style="font-size: 6px ;">No. de Registro:</span> 
-                                  <span style="font-size: 6px ; margin-left: 17px;">2122220788</span> 
+                                  <span style="font-size: 6px ; margin-left: 17px;"><span t-field="o.No_Registro" /></span> <!--No_Registro-->
                                   <span style="font-size: 6px ;margin-left: 40px;">No. Doc. Contable:</span> 
-                                  <span style="font-size: 6px ; margin-left: 17px;">212131313323</span> 
+                                  <span style="font-size: 6px ; margin-left: 17px;"><span t-field="o.No_Contable" /></span> <!--No_Contable-->
+
                                 </td>
                                 <td valign="button" style="width: 15%;  height: 100%; /* border: 1px solid red; */ text-align: center; vertical-align:bottom">FACTURA</td>
                                 <td style="width: 43%;  height: 100%; /* border: 1px solid red; */ align-content: center; text-align: center;">
                                     <span style="font-size: 8px ;">No de Cuenta Contrato / NIC</span> <br></br>
                                     <div style="border: 1px solid black; height: 25px; width: 80%; margin-left: 10% ; align-content: center; padding: 2px; padding-bottom: 10px!important;">
-                                    100006532981.7
+                                        <span t-field="o.no_cta_contrato" /><!--cuenta_contrato.no_cta_contrato-->
                                     </div>
                                     <span style="font-size: 6px ;">INDIQUE ESTE NUMERO CUANDO SE COMUNIQUE CON NOSOTROS</span> 
                                 </td>

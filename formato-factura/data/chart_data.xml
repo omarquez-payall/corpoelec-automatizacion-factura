@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="ve_chart_template_amd" model="account.chart.template">
+        <field name="name">Contabilidad Venezolana</field>
+        <field name="bank_account_code_prefix">8888</field>
+        <field name="cash_account_code_prefix">7777</field>
+        <field name="transfer_account_code_prefix">5555555</field>
+        <field name="code_digits">7</field>
+        <field name="currency_id" ref="base.VEF"/>
+    </record>
+  </data>
+</odoo>

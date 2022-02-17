@@ -5,7 +5,8 @@
         <xpath expr="//t[@t-call='web.external_layout']" position="replace">
             <t t-set="itsInvoice" t-value="1" />
             <t t-call="web.external_layout">
-                <table style="width: 100%; height: 40px; /* border: 1px solid red; */border-collapse: collapse;">
+    <!--             <table style="width: 100%; height: 40px; /* border: 1px solid red; */border-collapse: collapse;">
+
                     <tr>
                         <td style="width: 40%; height: 100%; /* border: 1px solid red; */">
                           <div style="width: 50%;"><img t-if="o.images.full_logo" t-att-src="image_data_uri(o.images.full_logo)" style="width: 100%;" alt="Logo"/></div>  <br></br>
@@ -23,6 +24,33 @@
                             <span style="font-size: 6px ;">INDIQUE ESTE NUMERO CUANDO SE COMUNIQUE CON NOSOTROS</span> 
                         </td>
                     </tr>
+                </table> -->
+
+                
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td style="width: 50%; vertical-align:top; font-size: 8px; ">
+                            <span style="font-size: 8px ;">Titular del Contrato:</span> <br></br> 
+                            <span style="font-size: 8px ;">  <span t-field="o.partner_id.name" /></span> <br></br><!--partner_id.name-->
+                            <span style="margin-right: 15px;">CI/RIF/.Nro</span>  <span t-field="o.partner_id.vat" /> <br></br><!--partner_id.vat-->
+                            <span>Direccion del suministro </span> <br></br>
+                                <span t-field="o.address_suministro" /> <!--cuenta_contrato.address_suministro-->
+
+                            <p style="width: 100%; margin-top: 3px;">Secuencia: 00000000001</p>
+                        </td> 
+                        <td style="position: relative;width: 50%; font-size: 8px !important; ">
+                            <div style="position: absolute; top: 13px; width: 100%;text-align: center;align-content:center !important; ">
+                                <span>Fecha de Emisión:</span>
+                                <span style="margin-left: 4px;"><span t-field="o.invoice_date" t-options='{"format": "dd/MM/YYYY"}'/></span><!--invoice_date-->
+                                <span>Hora de Emisión</span>
+                                <span style="margin-left: 4px;">14:54,00</span>
+                            </div>
+                            
+                            <p style="width: 100%; text-align: center; font-size: 11px; margin-top: -3.5px;">No. Factura: <span t-field="o.name" /></p><!--name-->
+                            Titular del Pago:  Direccion de Notificacion/Fiscal <br></br>
+                            <span t-field="o.partner_id.titular" /><br></br><!--partner_id.titular-->
+                            <span t-field="o.partner_id.dir_fisc" /><!--partner_id.dir_fisc-->
+
                 </table>
 
 
@@ -40,6 +68,7 @@
                             <p style="width: 100%; text-align: center; font-size: 11px; margin-top: -15px;">No. Factura XX16886826386386</p>
                             Titular del Pago. Direccion de Notificacion/Fiscal <br></br>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, vel corporis. Voluptatibus minima eius enim nostrum totam ab laudantium quo cupiditate, voluptate doloribus, asperiores ipsum eos, officiis iusto sint neque.
+
                         </td>
                     </tr>
                 </table>
@@ -82,25 +111,28 @@
             <table style="position: relative;width: 100.3%; font-size: 8px; border-collapse: collapse;">
                 <tbody style="padding-left: 3px;">
                     <tr>
-                        <td colspan="2">FACTURACION POR CONSUMO</td>
+                        <td colspan="2" style="padding-left: 3px;" >FACTURACION POR CONSUMO</td>
                     </tr>
                     <tr>
-                        <td> Laiores voluptas! Voluptates reiciendis eius quod voluptas, libero harum facere accusamus. 30x30</td>
-                        <td style="text-align: right; padding-right: 5px;">49.340,00</td>
+                        <t t-foreach="o.invoice_line_ids" t-as="invoice_line_ids">
+                            <td style="padding-left: 3px;"><span t-field="o.kwh_equivalente" />kWh(*) x <span t-field="invoice_line_ids.price_unit" />  30x<span t-field="o.dias_lectura" /></td><!--kwh_equivalente, price_unit, dias_lectura-->
+                            <td style="text-align: right; padding-right: 5px;"><span t-field="o.monto_total_consumo" /></td>
+                        </t>
                     </tr>
         
                     <tr>
-                        <td colspan="2">CARGOS POR AJUSTE COMBUSTIBLE Y ENERGIA (''')</td>
+                        <td colspan="2" style="padding-left: 3px;" >CARGOS POR AJUSTE COMBUSTIBLE Y ENERGIA (''')</td>
                     </tr>
                     <tr>
-                        <td> Laiores voluptas! Voluptates reiciendis eius quod voluptas, 203X30</td>
+                        <td style="padding-left: 3px;" > Laiores voluptas! Voluptates reiciendis eius quod voluptas, 203X30</td>
                         <td style="text-align: right; padding-right: 5px;">0.05</td>
                     </tr>
                     <tr>
-                        <td colspan="2">CARGOS POR AJUSTE COMBUSTIBLE Y ENERGIA (''')</td>
+                        <td style="padding-left: 3px;" colspan="2">CARGOS POR AJUSTE COMBUSTIBLE Y ENERGIA (''')</td>
                     </tr>
                     <tr>
-                        <td> Laiores voluptas! Voluptates reiciendis eius quod voluptas, 203X30</td>
+                        <td style="padding-left: 3px;" > Laiores voluptas! Voluptates reiciendis eius quod voluptas, 203X30</td>
+
                         <td style="text-align: right; padding-right: 5px;">0.05</td>
                     </tr>
                 </tbody>
@@ -114,9 +146,10 @@
                     <td style="border: 1px solid black;text-align: center; width:30%">No. de Medidor</td>
                 </tr>
                 <tr>
-                    <td style="border: 1px solid black;text-align: center;">1</td>
-                    <td style="border: 1px solid black;text-align: center;">1</td>
-                    <td style="border: 1px solid black;text-align: center;">1</td>
+                    <td style="border: 1px solid black;text-align: center;"><span t-field="o.tipo_tarifa" /></td><!--cuenta_contrato.tipo_tarifa-->
+                    <td style="border: 1px solid black;text-align: center;"><span t-field="o.cnae" /></td><!--cuenta_contrato.cnae-->
+                    <td style="border: 1px solid black;text-align: center;"><span t-field="o.medidor" /></td><!--cuenta_contrato.medidor-->
+
                 </tr>
                 
                 </table>
@@ -124,13 +157,14 @@
                 <table style="font-size: 6px;border-collapse: collapse; width: 100%;">
                     <tr style="height: 20px;">
                         <td style=" text-align: center; width: 33.3%;">Demanda Asignada (KVA)</td>
-                        <td style=" text-align: center;width: 33.3%;">CNAE</td>
-                        <td style="text-align: center; width:33.3%">No. de Medidor</td>
+                        <td style=" text-align: center;width: 33.3%;">Demanda Leida</td>
+                        <td style="text-align: center; width:33.3%">Demanda Facturada</td>
                     </tr>
                     <tr>
-                        <td style="border: 1px solid black;text-align: center;">1</td>
-                        <td style="border: 1px solid black;text-align: center;">1</td>
-                        <td style="border: 1px solid black;text-align: center;">1</td>
+                        <td style="border: 1px solid black;text-align: center;"><span t-field="o.demanda" /></td><!--cuenta_contrato.demanda-->
+                        <td style="border: 1px solid black;text-align: center;"><span t-field="o.demanda_leida" /></td><!--demanda_leida-->
+                        <td style="border: 1px solid black;text-align: center;"><span t-field="o.demanda_facturada" /></td><!--demanda_facturada-->
+
                     </tr>
                     
                 </table>
@@ -143,11 +177,11 @@
                         <td style="text-align: center; width:20%">Cantidad  Medida</td>
                     </tr>
                     <tr>
-                        <td style="border: 1px solid black;text-align: center;">1</td>
-                        <td style="border: 1px solid black;text-align: center;">1</td>
-                        <td style="border: 1px solid black;text-align: center;">1</td>
-                        <td style="border: 1px solid black;text-align: center;">1</td>
-                        <td style="border: 1px solid black;text-align: center;">1</td>
+                        <td style="border: 1px solid black;text-align: center;">CONSUMO</td>
+                        <td style="border: 1px solid black;text-align: center;"><span t-field="o.lectura_actual" /></td><!--lectura_actual-->
+                        <td style="border: 1px solid black;text-align: center;"><span t-field="o.lectura_anterior" /></td><!--lectura_anterior-->
+                        <td style="border: 1px solid black;text-align: center;"><span t-field="o.factor_multiplicador" /></td><!--factor_multiplicador-->
+                        <td style="border: 1px solid black;text-align: center;"><span t-field="o.cantidad_medida" /></td><!--cantidad_medida-->
                     </tr>
                     
                 </table>
@@ -156,20 +190,24 @@
     <table style="position: relative;width: 63%; font-size: 8px; border: 1px solid black; border-top: 0; border-collapse: collapse;">
         <tfoot style="background-color: #ccc;">
             <tr>
-              <td>TOTAL CARGOS POR SERVICIO DE ELECTRICIDAD <span style="margin-left: 25%;">Bs.</span></td>
-              <td style="align-content: right; text-align: right; padding-right: 3px;">88.434,97</td> 
+              <td style="padding-left: 3px;">TOTAL CARGOS POR SERVICIO DE ELECTRICIDAD <span style="margin-left: 25%;">Bs.</span></td>
+              <td style="align-content: right; text-align: right; padding-right: 3px;"><span t-field="o.monto_total_demanda" /></td> <!--monto_total_demanda-->
+
             </tr>
           </tfoot>
     </table>
     <div style="position: relative; width: 100%; height: 25px ;">
-        <div style="position: absolute; right:0; top: 5px; border: 1px solid black;  padding: 5px; text-align: center; align-content: center; font-size: 5.5px; width: 20%; font-weight: bold;">
+        <div style="position: absolute; right:0; top: 5px; background-color: #E7E3E3; /* border: 1px solid black;  */ padding: 5px; text-align: center; align-content: center; font-size: 5.5px; width: 20%; font-weight: bold;">
             PERIODO DE FACTURACION DE ENERGIA <br></br>
-            03.06.2021 al 02.07.2021
+            <span t-field="o.inicio_periodo" /> al <span t-field="o.fin_periodo" /><!--inicio_periodo y fin_periodo-->
         </div>
-        <div style="position: absolute; top:3px; left: 0; font-size: 4px; line-height: 6px;">
+        <div style="position: absolute; top:3px; left: 0; font-size: 5.6px; line-height: 6px;">
+            LA SIGUIENTE LECTURA SERA APROXIMADAMENTE EL: <span t-field="o.fin_periodo" /> <br></br><!--fin_periodo-->
+
             (*) LOS PRECIOS Y CONCEPTOS INDICADOS EN ESTA FACTURASE RIGEN DE ACUERDO CON LA GACETA OFICIAL. No. 37415 DE FECHA : 05.04.2002 <br></br>
 (**) CONSUMO EQUIVALENTE KWH- CONSUMO ( KWH ) X 30 / DIAS DE FACTURACIÓN <br></br>
-(***) C.A.C.F. ART. N-20 SEGUN GACETA ANTES REFERIDA <br></br>
+(***) C.A.C.F. ART. N-20 SEGUN GACETA ANTES REFERIDA <br></br> 
+
 (****) GACETA OFICIAL 38.263 DE FECHA 01/09/05
 
         </div>
@@ -180,7 +218,8 @@
 
 
     <div style="position: relative;width: 100%; top: 2px; font-size: 5px;  height: 30px;">
-        <div style="position: absolute; bottom: 0;">
+      <!--   <div style="position: absolute; bottom: 0;">
+
             Cuenta Contrato Colectiva: <br></br>
             Documento Impresion Colectivo <br></br>
             Determinacion de cuenta Colectiva  
@@ -188,13 +227,15 @@
         <div style="position: absolute; bottom: 0; left: 200px;">
             Banco: <br></br>
             Cuenta: <br></br>
-        </div>
+        </div> -->
+
          <div style="position: absolute; bottom: 0; right: 10px; ">
           <table style="font-size: 10px;border-collapse: collapse;">
               <tr>
                   <td style="padding-right: 4px;">SUB-TOTAL</td>
                   <td style="background-color: #ccc; width: 70px;">Bs</td>
-                  <td style="background-color: #ccc;">88.32323,83</td>
+                  <td style="background-color: #ccc;"><span t-field="o.monto_total_demanda" /></td><!--monto_total_demanda-->
+
               </tr>
           </table>
          </div>
@@ -205,22 +246,23 @@
 
 
     
-    <div id="cuadroOtrosServicios" style="position: relative; width: 100%; top:5px; height: 186px; padding-top: 1px;">
+    <div id="cuadroOtrosServicios" style="position: relative; width: 100%; top:5px; height: 287px; padding-top: 1px;">
         <!--  ###################### ASEO ###################### -->
-  <div id="aseo" style="position:absolute; width: 27%;top:1px; border: 1px solid black;height: 90px; ">
-      <div style="position: absolute; top: 0; left: 0; height: 86px; width: 10px;background-color: #ccc; align-content: center; text-align: center;">
-        <div style="width: 30px; margin-top: 45px ;margin-left: -10px ;font-size: 6px;transform: rotate(-90deg);-ms-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-o-transform: rotate(-90deg);">ASEO</div>
+  <div id="aseo" style="position:absolute; width: 30%;top:1px; border: 1px solid black;height: 140px; ">
+      <div style="position: absolute; top: 0; left: 0; height: 138px; width: 10px;background-color: #ccc; align-content: center; text-align: center;">
+        <div style="width: 30px; margin-top: 70px ;margin-left: -10px ;font-size: 6px;transform: rotate(-90deg);-ms-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-o-transform: rotate(-90deg);">ASEO</div>
       </div>
-      <div style="position: absolute; top:12px; font-size: 6px; text-align: center; align-content: center; width: 100%;">
+      <div style="position: absolute; top:28px; font-size: 6px; text-align: center; align-content: center; width: 100%;">
           9000 Eliminacion de Desperdicios y Aguas Residuales <br></br>
           Sanamiento y Actividades Similares
       </div>
-      <div style="position: absolute; top:1px; font-size: 3px; text-align: center; align-content: center; width: 100%;">
+      <div style="position: absolute; top:2px; left: 17%; font-size: 5px; text-align: center; align-content: center; width: 80%;">
           Fospuca Solillo , C.A. RIF: J-40944472-1 Av Costanera cruce con avenida   <br></br>
           Fuerzas Armadas CC Camino Real nivel feria de planta 1 local B-L63. <br></br>
           módulo B sector centro Barcelona Anzoategui zona postal
       </div>
-      <table style="position: absolute; top: 32px; left: 20px; border-collapse: collapse; font-size: 6px !important;">
+      <table style="position: absolute; bottom: 26px; left: 13px; border-collapse: collapse; font-size: 8px !important;">
+
           <tr>
               <td>Servicio de Aseo Urbano</td> <td>Bs.</td>
           </tr>
@@ -244,13 +286,13 @@
   </div>
 
    <!--  ###################### IMPUESTO INMUBLE ###################### -->
-   <div id="impuestoInmueble" style="position:absolute; width: 27%;top: 94px; border: 1px solid black;height: 90px; ">
+   <div id="impuestoInmueble" style="position:absolute; width: 30%;top: 146px; border: 1px solid black;height: 140px; ">
     <div style="position: absolute; top: 1%; left: 6%; width: 15px;"><img t-if="o.images.service_icon_2" t-att-src="image_data_uri(o.images.service_icon_2)" alt="" style="width: 100%;" /></div> 
-    <div style="position: absolute; top: 0; left: 0; height: 86.5px; width: 10px;background-color: #ccc; align-content: center; text-align: center;">
-        <div style=" width: 100px; margin-top: 38px; margin-left: -45px; font-size: 5.5px;transform: rotate(-90deg);-ms-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-o-transform: rotate(-90deg);">IMPUESTO INMUEBLE</div>
+    <div style="position: absolute; top: 0; left: 0; height: 138px; width: 10px;background-color: #ccc; align-content: center; text-align: center;">
+        <div style=" width: 100px; margin-top: 60px; margin-left: -45px; font-size: 5.5px;transform: rotate(-90deg);-ms-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-o-transform: rotate(-90deg);">IMPUESTO INMUEBLE</div>
       </div>
+      <table style="position: absolute; bottom: 26px; left: 20px; border-collapse: collapse; font-size: 8px !important;">
 
-      <table style="position: absolute; top: 32px;  left: 20px; border-collapse: collapse; font-size: 6px !important;">
           <tr>
               <td>Número de Identificacion del <br></br> Inmueble:</td> <td style="vertical-align:top">Bs.</td>
           </tr>
@@ -272,21 +314,22 @@
   </div>
 
   <!--  ###################### RELLENO###################### -->
-  <div style="position:relative; width: 27%;top:0; left: 35%; border: 1px solid black;height: 90px; ">
+  <div style="position:relative; width: 30%;top:0; left: 35%; border: 1px solid black;height: 140px; ">
     <div style="position: absolute; top: 1%; left: 6%; width: 15px;"><img t-if="o.images.service_icon_1" t-att-src="image_data_uri(o.images.service_icon_1)" alt="" style="width: 100%;" /></div>  
-    <div style="position: absolute; top: 0; left: 0; height: 86.5px; width: 10px;background-color: #ccc; align-content: center; text-align: center;">
-        <div style=" width: 100px; margin-top: 35px; margin-left: -45px; font-size: 5.5px;transform: rotate(-90deg);-ms-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-o-transform: rotate(-90deg);">RELLENO SANITARIO</div>
-      </div>
+    <div style="position: absolute; top: 0; left: 0; height: 138px; width: 10px;background-color: #ccc; align-content: center; text-align: center;">
+        <div style=" width: 100px; margin-top: 60px; margin-left: -45px; font-size: 5.5px;transform: rotate(-90deg);-ms-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-o-transform: rotate(-90deg);">RELLENO SANITARIO</div>
+      </div> 
 
-      <table style="position: absolute; top: 32px;  left: 20px; border-collapse: collapse; font-size: 6px !important;">
+      <table style="position: absolute; bottom: 26px; left: 13px; border-collapse: collapse; font-size: 8px !important;">
           <tr>
-              <td>Servicio de Relleno Sanitario:</td> <td style="vertical-align:top">Bs.</td>
+              <td>Servicio de Relleno Sanitario:</td> <td style="vertical-align:top;padding-left: 3px;">Bs.</td>
           </tr>
           <tr>
-              <td>Otros Cargos y Créditos:</td> <td>Bs.</td>
+              <td>Otros Cargos y Créditos:</td> <td style="padding-left: 3px;">Bs.</td>
           </tr>
           <tr>
-              <td>Total Base Imponible <br></br> Total IVA</td> <td>Bs.</td>
+              <td>Total Base Imponible <br></br> Total IVA</td> <td style="padding-left: 3px;" >Bs.</td>
+
           </tr>
 
       </table>
@@ -301,13 +344,13 @@
           </table>
          </div>
   </div>
-  <div style="position:absolute; width: 27%;top: 94px;left: 35%; border: 1px solid black;height: 90px; ">
+  <div style="position:absolute; width: 30%;top: 146px;left: 35%; border: 1px solid black;height: 140px; ">
     <div style="position: absolute; top: 1%; left: 6%; width: 15px;"><img t-if="o.images.service_icon_3" t-att-src="image_data_uri(o.images.service_icon_3)" alt="" style="width: 100%;" /></div>    
-    <div style="position: absolute; top: 0; left: 0; height: 86.5px; width: 10px;background-color: #ccc; align-content: center; text-align: center;">
-          <div style="width: 30px; margin-top: 45px ;margin-left: -10px ;font-size: 6px;transform: rotate(-90deg);-ms-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-o-transform: rotate(-90deg);">GAS</div>
+    <div style="position: absolute; top: 0; left: 0; height: 138px; width: 10px;background-color: #ccc; align-content: center; text-align: center;">
+          <div style="width: 30px; margin-top: 70px ;margin-left: -10px ;font-size: 6px;transform: rotate(-90deg);-ms-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-o-transform: rotate(-90deg);">GAS</div>
       </div>
 
-      <table style="position: absolute; top: 32px; left: 20px; border-collapse: collapse; font-size: 6px !important;">
+      <table style="position: absolute; bottom: 26px; left: 20px; border-collapse: collapse; font-size: 8px !important;">
           <tr>
               <td>Servicio de GAS</td> <td style="vertical-align:top">Bs.</td>
           </tr>
@@ -330,11 +373,11 @@
           </table>
          </div>
   </div>
-   <div style="position: absolute; top: 0; right: 0; height: 80px; width: 27%; ">
+   <div style="position: absolute; top: 0; right: 0; height: 140px; width: 30%; ">
         
           <img t-if="o.images.payment_methods" t-att-src="image_data_uri(o.images.payment_methods)" alt="" style="width: 100%; height: 100%;"/>
       </div>
-      <div style="position: absolute; top: 82px; right: 0; height: 80px; width: 27%; ">
+      <div style="position: absolute; top: 146px; right: 0; height: 140px; width: 30%; ">
           <img t-if="o.images.advertisement" t-att-src="image_data_uri(o.images.advertisement)" alt="" style="width: 100%; height: 100%;"/>
       </div>  
   
@@ -343,35 +386,39 @@
         INFORMACIÓN COMERCIAL
     </div>
     <!--     ###################### ELECTRICIDAD ###################### -->
-    <div id="cuadroInformacionComercial" style="position: relative; width: 100%; top:5px; height: 103px; padding-top: 1px; ">
-      <div style="position: absolute; top: 11px; left: 37%; height: 80px; width: 27%; align-content: center !important; text-align: center; ">
+    <div id="cuadroInformacionComercial" style="position: relative; width: 100%; top:4px; height: 148px; padding-top: 1px; ">
+      <div style="position: absolute; top: 11px; left: 35%; height: 135px; width: 30%; align-content: center !important; text-align: center; ">
                 <img t-if="o.images.footer_icon_1" t-att-src="image_data_uri(o.images.footer_icon_1)" alt="" style=" height: 100%;"/>
           </div>
-        <div id="electricidad" style="position:absolute; width: 27%;top:1px; border: 1px solid black;height: 95px; ">
+        <div id="electricidad" style="position:absolute; width: 30%;top:1px; border: 1px solid black;height: 140px; ">
          <div style="position: absolute; top: 0; left: 6%; width: 20px;">
             <img t-if="o.images.logo" t-att-src="image_data_uri(o.images.logo)" alt="" style="width: 100%;"/>
          </div>
-            <div style="position: absolute; top: 0; left: 0; height: 90px; width: 10px;background-color: #ccc; align-content: center; text-align: center;">
-              <div style=" width: 100px; margin-top: 38px; margin-left: -45px; font-size: 6px;transform: rotate(-90deg);-ms-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-o-transform: rotate(-90deg);">ELECTRICIDAD</div>
+            <div style="position: absolute; top: 0; left: 0; height: 138px; width: 10px;background-color: #ccc; align-content: center; text-align: center;">
+              <div style=" width: 100px; margin-top: 60px; margin-left: -45px; font-size: 6px;transform: rotate(-90deg);-ms-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-o-transform: rotate(-90deg);">ELECTRICIDAD</div>
             </div>
-            <div style="position: absolute; top:12px; font-size: 6px; text-align: center; align-content: center; width: 100%;">
+            <div style="position: absolute; top:28px; font-size: 6px; text-align: center; align-content: center; width: 100%;">
                 4010 Eliminacion de Desperdicios y Aguas Residuales <br></br>
                 Sanamiento y Actividades Similares
             </div>
-            <div style="position: absolute; top:1px; font-size: 3px; text-align: center; align-content: center; width: 100%;">
+            <div style="position: absolute; top:2px; left: 17%; font-size: 5px; text-align: center; align-content: center; width: 80%;">
+
                 Corporación Eléctrica Nacional , S.A (CORPOELEC) Rif G-20010014-1 Av. <br></br>
                 Volimer entre Caracas y Alameda Edif. Centro Empresarial Caracas Piso 6 Of. 8, <br></br>
                 San Bernandino Caracas. Venezuela Telf. (0212) 502.21.11
             </div>
-            <table style="position: absolute; top: 32px; left: 20px; border-collapse: collapse; font-size: 6px !important;">
+
+            <table style="position: absolute; bottom: 26px; left: 20px; border-collapse: collapse; font-size: 8px !important;">
                 <tr>
-                    <td>Servicio de Electricidad</td> <td>Bs.</td>
+                    <td>Servicio de Electricidad</td> <td>Bs.<span t-field="o.subtotal_electricidad" /></td><!--subtotal_electricidad-->
+
                 </tr>
                 <tr>    
                     <td>Otros Cargos y Créditos</td> <td>Bs.</td>
                 </tr>
                 <tr>
-                    <td>Total Base Imponible </td> <td>Bs.</td>
+                    <td>Total Base Imponible </td> <td>Bs.<span t-field="o.subtotal_electricidad" /></td><!--subtotal_electricidad-->
+
                 </tr>
                 <tr>
                     <td>Monto Exento o Exonerado de IVA </td> <td style="font-weight: bold;">(Bs.0,00)</td>
@@ -386,29 +433,32 @@
                     <tr>
                         <td style="padding-right: 4px;width: 77px; font-size: 6.5px; ">TOTAL ELECTRICIDAD</td>
                         <td style="background-color: #ccc; width: 30px;">Bs.</td>
-                        <td style="background-color: #ccc;text-align: right;">88.32323,83</td>
+
+                        <td style="background-color: #ccc;text-align: right;"><span t-field="o.monto_total_demanda" /></td><!--monto_total_demanda-->
+
                     </tr>
                 </table>
                </div>
         </div>
            <!--  ###################### SALDO VENCIDO ##################### -->
-     <div id="saldoVencido" style="position:absolute; width: 27%;top: 1px; right: 0px; border: 1px solid black;height: 95px; ">
+     <div id="saldoVencido" style="position:absolute; width: 30%;top: 1px; right: 0px; border: 1px solid black;height: 140px; ">
         <div style="position: absolute; top: 1%; left: 7%; width: 20px; height: auto;"> <img t-if="o.images.footer_icon_2" t-att-src="image_data_uri(o.images.footer_icon_2)" alt="" style="width: 100%;"/></div>
-        <div style="position: absolute; top: 0; left: 0; height: 90px; width: 10px;background-color: #ccc; align-content: center; text-align: center;">
-          <div style=" width: 100px; margin-top: 39px; margin-left: -45px; font-size: 5.5px;transform: rotate(-90deg);-ms-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-o-transform: rotate(-90deg);">SALDO VENCIDO</div>
+        <div style="position: absolute; top: 0; left: 0; height: 138px; width: 10px;background-color: #ccc; align-content: center; text-align: center;">
+          <div style=" width: 100px; margin-top: 60px; margin-left: -45px; font-size: 5.5px;transform: rotate(-90deg);-ms-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-o-transform: rotate(-90deg);">SALDO VENCIDO</div>
         </div>
-        <div style="position: absolute; top:1px; font-size: 3px; text-align: center; align-content: center; width: 100%;">
+        <div style="position: absolute; top:2px; left: 17%; font-size: 5px; text-align: center; align-content: center; width: 80%;">
             Administradora Serdeco , C.A. RIF: J-00240703-1 NIT: 006396895 Capital Bs <br></br>
             100.000.000,00 Av. Volimer c/Caracas Alameda Edif. Ctro. Empresarial de <br></br>
             Caracas, Piso 11 Ofic Serdeco, Urb. San Bernandino
         </div>
 
-        <table style="position: absolute; top: 32px; left: 20px; border-collapse: collapse; font-size: 6px !important;">
+        <table style="position: absolute;  bottom: 26px; left: 20px; border-collapse: collapse; font-size: 8px !important;">
             <tr>
-                <td>Eléctricidad, Saldo Vencido</td> <td style="vertical-align:top">Bs.</td>
+                <td>Eléctricidad, Saldo Vencido</td> <td style="vertical-align:top; padding-left: 5px;">Bs.<span t-field="o.saldo_vencido" /></td><!--saldo_vencido-->
             </tr>
             <tr>
-                <td>Aseo, Saldo Vencido</td> <td>Bs.</td>
+                <td>Aseo, Saldo Vencido</td> <td style="padding-left: 5px;">Bs.</td>
+
             </tr>
 
         </table>
@@ -418,7 +468,8 @@
                 <tr>
                     <td style="padding-right: 4px;width: 85px;">TOTAL SALDO VENCIDO</td>
                     <td style="background-color: #ccc; width: 25px;">Bs.</td>
-                    <td style="background-color: #ccc;text-align: right;">88.32323,83</td>
+                    <td style="background-color: #ccc;text-align: right;"><span t-field="o.saldo_vencido" /></td><!--saldo_vencido-->
+
                 </tr>
             </table>
            </div>
@@ -429,37 +480,41 @@
         MONTO TOTAL A PAGAR
     </div>
 
-    <div style="position: relative; width: 100%; height: 35px;">
-        <div style="position: absolute; top: 2px; left: 5px; font-size: 10px;">
-         Pague antes de: 26.09.2021
+    <div style="position: relative; width: 100%; height: 130px;">
+        <div style="position: absolute; top: 5px; left: 5px; font-size: 10px;">
+         Pague antes de: <span t-field="o.invoice_date_due" /><!--invoice_date_due-->
+
         </div>
 
         <div style="position:absolute; width: 100%; bottom: 0 !important; font-size: 5px; align-content: center; text-align: center;">
             CONSERVE ESTA FACTURA SU CANCELACIÓN NO PRUEBA EL PAGO DE LAS ANTERIORES
         </div>
 
-        <div style="position: absolute !important; bottom: 2px; right: 0; ">
-            <table style="font-size: 6.5px;border-collapse: collapse;">
+        <div style="position: absolute !important; top: 5px; right: 0; ">
+            <table style="font-size: 10px;border-collapse: collapse;">
                 <tr>
-                    <td style="padding-right: 4px;width: 75px;">ENERGIA</td>
+                    <td style="padding-right: 4px;width: 120px;">ENERGIA</td>
                     <td style="background-color: #ccc; width: 25px;">Bs.</td>
-                    <td style="background-color: #ccc;text-align: right;">88.323.000.000.000,83</td>
+                    <td style="background-color: #ccc;text-align: right;"><span t-field="o.monto_total_demanda" /></td><!--monto_total_demanda-->
                 </tr>
                 <tr>
-                    <td style="padding-right: 4px;width: 75px;">OTROS SERVICIOS</td>
+                    <td style="padding-right: 4px;width: 120px;">OTROS SERVICIOS</td>
+
                     <td style="background-color: #ccc; width: 25px;">Bs.</td>
                     <td style="background-color: #ccc; text-align: right;">88.323.000.000.000</td>
                 </tr>
                 <tr>
-                    <td style="padding-right: 4px;width: 75px;">TOTAL </td>
+                    <td style="padding-right: 4px;width: 120px;">TOTAL </td>
                     <td style="background-color: #ccc; width: 25px;">Bs.</td>
-                    <td style="background-color: #ccc; text-align: right;">88.323.000.000.000</td>
+                    <td style="background-color: #ccc; text-align: right;"><span t-field="o.monto_total_demanda" /></td><!--monto_total_demanda-->
+
                 </tr>
             </table>
            </div>
 
     </div>
 
+<!-- 
 
     <div style="position: relative; width: 100%; height: 45px; top: 2px; border-top-color:#ccc; border-top-style:dashed; border-top-width:0.8px;  ">
         <div style="position: absolute; width: 100%; top: 1px; height: auto; font-size: 6px; text-align: center; align-content: center;">PARA USO DE LA EMPRESA Y AGENTES DE RECAUDACION </div>
@@ -478,8 +533,8 @@
           </div>
       </div>
     
-     
-      </div>
+      </div> -->
+
             </t> 
         </xpath>
     </template>

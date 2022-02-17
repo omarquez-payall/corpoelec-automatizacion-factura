@@ -1,20 +1,28 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api
 
+import datetime
+
+
 
 class AccountMove( models.Model):
     _inherit = 'account.move'
 
-    #------------------- Relacion con los servicios ------------------
-    No_Contable = fields.Char( string = 'No Doc Contable',readonly=True, required = True, index=True, default=lambda self: self._get_next_sequence_number_contable())
-    No_Registro = fields.Char( string = 'No Registro',readonly=True, required = True, index=True, default=lambda self: self._get_next_sequence_number_registro())
+    name = fields.Char( string = 'Number',readonly=True, index=True, default=lambda self: self._get_seq_fact())
     
-    cuenta_contrato = fields.One2many( 
-        string="No Cuenta Contrato",
-        comodel_name = "contract.accounts",
-        store=True,
-        inverse_name = "move_id"
-    )
+    #------------------- Relacion con los servicios ------------------
+    No_Contable = fields.Char( string = 'No Doc Contable',readonly=True, index=True, default=lambda self: self._get_next_sequence_number_contable())
+    No_Registro = fields.Char( string = 'No Registro',readonly=True, index=True, default=lambda self: self._get_next_sequence_number_registro())
+    
+    #------------------- CUENTA CONTRATO ------------------
+    no_cta_contrato = fields.Char(string = 'Cuenta Contrato')
+    cnae = fields.Char(string = 'CNAE')
+    tipo_tarifa = fields.Char(string = 'tipo de tarifa')
+    medidor = fields.Char(string = 'Identificador de Medidor')
+    address_suministro = fields.Char(string = 'Dirección de Suministro')
+    demanda = fields.Float(string = 'Demanda asignada')
+    fecha_creacion = fields.Date(string = 'Fecha de creación')
+    #------------------- CUENTA CONTRATO ------------------
     
     inicio_periodo = fields.Date(string='Inicio período', default=fields.Date.today, store=True)
     fin_periodo = fields.Date(string='Fin período', default=fields.Date.today, store=True)
@@ -29,25 +37,43 @@ class AccountMove( models.Model):
     # COMO DEBE ESTAR EN PRODUCCION
     #dias_lectura = fields.Integer( string = "Dias Lectura", required = True)
     #CREAR LINEAS DEL SERVICIO DE ELECTRICIDAD, ASEO Y RELLENO
+    
+    @api.onchange('inicio_periodo')
+    def expiration_date(self):
+        for record in self:
+            record.dias_lectura = record.inicio_periodo.day
+            
+            
+
 
     @api.model
     def create(self, vals):
         vals['No_Contable'] = self.env['ir.sequence'].next_by_code('Seq_No_Contable')
         vals['No_Registro'] = self.env['ir.sequence'].next_by_code('Seq_No_Registro')
+        vals['name'] = self.env['ir.sequence'].next_by_code('seq_fact')
         result = super(AccountMove, self).create(vals)
         return result 
-
+    
     @api.model
     def _get_next_sequence_number_contable(self):
-        sequence = self.env['ir.sequence'].search([('code','=', 'Seq_No_Contable')])
-        next = sequence.get_next_char(sequence.number_next_actual)
-        return next
+        for record in self:
+            sequence = self.env['ir.sequence'].search([('code','=', 'Seq_No_Contable')])
+            next = sequence.get_next_char(sequence.number_next_actual)
+            return next
 
     @api.model
     def _get_next_sequence_number_registro(self):
-        sequence = self.env['ir.sequence'].search([('code','=', 'Seq_No_Registro')])
-        next = sequence.get_next_char(sequence.number_next_actual)
-        return next
+        for record in self:
+            sequence = self.env['ir.sequence'].search([('code','=', 'Seq_No_Registro')])
+            next = sequence.get_next_char(sequence.number_next_actual)
+            return next
+    
+    @api.model
+    def _get_seq_fact(self):
+        for record in self:
+            sequence = self.env['ir.sequence'].search([('code','=', 'seq_fact')])
+            next = 'MMGB' + sequence.get_next_char(sequence.number_next_actual)
+            return next
 
     @api.onchange('partner_id')
     def _filtrar_cuentas_contrato(self):
@@ -61,29 +87,31 @@ class AccountMove( models.Model):
             
             for product in products:
                 #CAMBIAR ACCOUNT_ID CUANDO SE SEPA A CUAL VA
-                record.invoice_line_ids.create({
-                    'name': product.name,
-                    'price_unit': product.price,
-                    'quantity': 1,
-                    'product_id': product.id,
-                    'account_id': 1,
-                    'move_id': record.id
-                })
-                record.cargar_productos = True
-
-    @api.model
-    def cargar_productos_api(self):
-       for record in self:
-           products = self.env['product.product'].search( [['precargar','=',True]])
-           
-           for product in products:
-               #CAMBIAR ACCOUNT_ID CUANDO SE SEPA A CUAL VA
-               record.invoice_line_ids.create({
-                   'name': product.name,
-                   'price_unit': product.price,
-                   'quantity': 1,
-                   'product_id': product.id,
-                   'account_id': 1,
-                   'move_id': record.id
-               })
-               record.cargar_productos = True
+                
+              record.linea_electricidad.create({
+                'move_id': record.id,
+                'nombre_cargo': 'FACTURACION POR CONSUMO',
+                'cantidad': 1,
+                'tipo':'principal',
+                'clasificacion':'consumo',
+                'precio_unidad':1,
+                'subtotal':1
+              })
+              record.linea_electricidad.create({
+                'move_id': record.id,
+                'nombre_cargo': 'CARGO POR AJUSTE COMBUSTIBLE Y ENERGIA',
+                'cantidad': 1,
+                'tipo':'otro',
+                'clasificacion':'combustible',
+                'precio_unidad':1,
+                'subtotal':1
+              })
+              record.linea_electricidad.create({
+                'move_id': record.id,
+                'nombre_cargo': 'FACTURACION POR DEMANDA',
+                'cantidad': 1,
+                'tipo':'principal',
+                'clasificacion':'demanda',
+                'precio_unidad':1,
+                'subtotal':1
+              })

@@ -12,8 +12,10 @@
                     <field name="partner_code" placeholder="Código de Interlocutor" readonly="1"/> 
                 </xpath>
                 <notebook>
-                    <page string="Cuentas contrato asociadas" >
-                        <field name="contract_accounts"/>
+                    <page string ="Direccion Fiscal">
+                        <group>
+                            <field name="dir_fisc" />
+                        </group>
                     </page>
                 </notebook>
             </field>

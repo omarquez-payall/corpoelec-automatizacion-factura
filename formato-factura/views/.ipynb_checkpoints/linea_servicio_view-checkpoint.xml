@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data> 
+        <record model="ir.ui.view" id="linea_servicio_view_form">
+            <field name="name">linea.servicio.view.form</field>
+            <field name="model">linea.servicio</field>
+            <field name="arch" type="xml">
+                <tree string="Viste de Lineas de Servicio">
+                    <field name="nombre_cargo"/> 
+                    <field name="cantidad"/>
+                    <field name="precio_unidad"/> 
+                    <field name="subtotal"/> 
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>
