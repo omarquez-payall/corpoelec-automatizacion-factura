@@ -7,11 +7,17 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='category_id']" position="after">
                     <field name="titular" placeholder="Titular de pago"/>
-                    <field name="dir_fisc" invisible="1"/>
                 </xpath>
                 <xpath expr="//field[@name='vat']" position="after"> 
                     <field name="partner_code" placeholder="Código de Interlocutor" readonly="1"/> 
                 </xpath>
+                <notebook>
+                    <page string ="Direccion Fiscal">
+                        <group>
+                            <field name="dir_fisc" />
+                        </group>
+                    </page>
+                </notebook>
                 
             </field>
         </record>
