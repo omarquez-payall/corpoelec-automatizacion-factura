@@ -2,7 +2,7 @@
 
 from odoo import models, fields, api
 
-class ContractAccountsInherit( models.Model):
+class ResCountryInherit( models.Model):
     _inherit = 'res.country.state'
     
     short_code = fields.Char(string = 'Codigo corto')

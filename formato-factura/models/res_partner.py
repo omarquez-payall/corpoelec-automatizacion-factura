@@ -9,7 +9,6 @@ class PartnerCodeInherit( models.Model):
     titular = fields.Char(string = 'titular de pago')
 
     dir_fisc = fields.Text(string = 'Direccion fiscal')
-    #contract_accounts = fields.One2many(string = 'Cuentas contrato', comodel_name = 'contract.accounts', inverse_name = 'titular')
 
     
     @api.model

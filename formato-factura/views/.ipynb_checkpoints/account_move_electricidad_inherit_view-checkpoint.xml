@@ -8,32 +8,6 @@
             <field name="arch" type="xml">
                 <xpath expr="//notebook" position="inside"> 
                     <page string="Electricidad">
-                        <group>
-                                <field 
-                                    name="linea_electricidad"
-                                    mode="tree"
-                                >
-                                    <tree editable="bottom" >
-                                        <control>
-                                            <create name="add_line_control" string="Add a line"/>
-                                        </control>
-                                        <field name="nombre_cargo"/>
-                                        <field name="cantidad" /> 
-                                        <field name="precio_unidad" />
-                                        <field name="tipo" invisible="1"/>
-                                        <field name="clasificacion" invisible="1"/>
-                                        <field name="subtotal" />
-                                    </tree>
-                                </field>
-                                <group col="3" colspan="3" >
-                                    <group></group>
-                                    <group>
-                                        <field name="subtotal_electricidad"/>
-                                    </group>
-                                </group>
-                            <group >
-                                
-                            </group>
                             <group col="6" colspan="6">
                                 <group col="6" colspan="6">
                                     <group col="3" colspan="3">
@@ -56,7 +30,6 @@
                                     </group>
                                 </group>
                             </group>
-                        </group>
                     </page>
                 </xpath>
             </field>
