@@ -5,7 +5,7 @@ import datetime
 
 class AccountMove( models.Model):
     _inherit = 'account.move'
-    name = fields.Char( string = 'Number',readonly=True, index=True, default=lambda self: self._get_seq_fact())
+    name = fields.Char( string = 'Number',readonly=True, index=True)
     state_id = fields.Many2one(string='Estado de Venezuela',related='partner_id.state_id', store=True)
     
     #------------------- Relacion con los servicios ------------------
@@ -67,7 +67,7 @@ class AccountMove( models.Model):
     def _get_seq_fact(self):
         for record in self:
             sequence = self.env['ir.sequence'].search([('code','=', 'seq_fact')])
-            next = 'MMGB' + sequence.get_next_char(sequence.number_next_actual)
+            next = 'SERIECC' + sequence.get_next_char(sequence.number_next_actual)
             return next
 
     @api.onchange('partner_id')
