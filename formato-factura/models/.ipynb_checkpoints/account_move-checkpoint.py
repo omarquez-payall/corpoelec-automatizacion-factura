@@ -45,7 +45,7 @@ class AccountMove( models.Model):
     @api.onchange('state_id')
     def short_code_extraction(self):
         for record in self:
-            state = self.env['res.country.state'].search([('id','=',record.state_id)])
+            state = self.env['res.country.state'].search([('code','=',record.state_id.code)])
             code = state.short_code
             return code
             
