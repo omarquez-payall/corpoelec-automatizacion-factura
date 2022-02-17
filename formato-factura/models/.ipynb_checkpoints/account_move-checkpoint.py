@@ -42,11 +42,13 @@ class AccountMove( models.Model):
         for record in self:
             record.dias_lectura = record.inicio_periodo.day
             
+    @api.onchange('state_id')
+    def expiration_date(self):
+        for record in self:
+            record.short = record.state_id.short_code
             
-
     @api.model
     def create(self, vals):
-        self.short = self.state_id.short_code
         vals['No_Contable'] = self.env['ir.sequence'].next_by_code('Seq_No_Contable')
         vals['No_Registro'] = self.env['ir.sequence'].next_by_code('Seq_No_Registro')
         vals['name'] = 'SERIECC' + self.env['ir.sequence'].next_by_code('seq_fact')
