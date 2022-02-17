@@ -42,10 +42,11 @@ class AccountMove( models.Model):
         for record in self:
             record.dias_lectura = record.inicio_periodo.day
             
-    @api.depends('state_id')
+    @api.onchange('state_id')
     def short_code_extraction(self):
         for record in self:
-            code = self.env['res.country.state'].search([('id','=',record.state_id)])
+            state = self.env['res.country.state'].search([('id','=',record.state_id)])
+            code = state.short_code
             return code
             
     @api.model
