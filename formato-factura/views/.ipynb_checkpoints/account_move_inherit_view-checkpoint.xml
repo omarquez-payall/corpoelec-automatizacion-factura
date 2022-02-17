@@ -26,6 +26,7 @@
                 </div>
                 <xpath expr="//field[@name='payment_reference']" position="after"> 
                     <field name="no_cta_contrato"/>
+                    <field name="state_id"/>
                     <field name="dias_lectura" />  
                 </xpath>
                 <xpath expr="//field[@name='invoice_date']" position="after"> 
