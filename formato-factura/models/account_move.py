@@ -5,8 +5,9 @@ import datetime
 
 class AccountMove( models.Model):
     _inherit = 'account.move'
-    name = fields.Char( string = 'Number',readonly=True, index=True)
+    name = fields.Char( string = 'Number',readonly=True, index=True, default=lambda self: self._get_seq_fact())
     state_id = fields.Many2one(string='Estado de Venezuela',related='partner_id.state_id', store=True)
+    state = fields.Char(string='Cod',related='state_id.code', store=True)
     
     #------------------- Relacion con los servicios ------------------
     No_Contable = fields.Char( string = 'No Doc Contable',readonly=True, index=True, default=lambda self: self._get_next_sequence_number_contable())
