@@ -43,7 +43,7 @@ class AccountMove( models.Model):
             record.dias_lectura = record.inicio_periodo.day
             
     @api.onchange('state_id')
-    def expiration_date(self):
+    def short_code_extraction(self):
         for record in self:
             record.short = record.state_id.short_code
             
