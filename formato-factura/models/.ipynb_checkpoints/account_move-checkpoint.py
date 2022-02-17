@@ -7,7 +7,6 @@ class AccountMove( models.Model):
     _inherit = 'account.move'
     name = fields.Char( string = 'Number',readonly=True, index=True, default=lambda self: self._get_seq_fact())
     state_id = fields.Many2one(string='Estado de Venezuela',related='partner_id.state_id')
-    short = fields.Char(string='Estado', default=lambda self: self.short_code_extraction())
     
     #------------------- Relacion con los servicios ------------------
     No_Contable = fields.Char( string = 'No Doc Contable',readonly=True, index=True, default=lambda self: self._get_next_sequence_number_contable())
@@ -42,18 +41,11 @@ class AccountMove( models.Model):
         for record in self:
             record.dias_lectura = record.inicio_periodo.day
             
-    @api.onchange('state_id')
-    def short_code_extraction(self):
-        for record in self:
-            state = self.env['res.country.state'].search([('code','=',record.state_id.code)])
-            code = state.short_code
-            return code
-            
     @api.model
     def create(self, vals):
         vals['No_Contable'] = self.env['ir.sequence'].next_by_code('Seq_No_Contable')
         vals['No_Registro'] = self.env['ir.sequence'].next_by_code('Seq_No_Registro')
-        vals['name'] = 'SERIECC' + self.env['ir.sequence'].next_by_code('seq_fact')
+        vals['name'] = 'SERIECC' + self.state_id + self.env['ir.sequence'].next_by_code('seq_fact')
         result = super(AccountMove, self).create(vals)
         return result 
     
