@@ -44,11 +44,13 @@ class AccountMove( models.Model):
 
     @api.model
     def create(self, vals):
-        vals['No_Contable'] = self.env['ir.sequence'].next_by_code('Seq_No_Contable')
-        vals['No_Registro'] = self.env['ir.sequence'].next_by_code('Seq_No_Registro')
-        vals['name'] = self.env['ir.sequence'].next_by_code('seq_fact')
-        result = super(AccountMove, self).create(vals)
-        return result 
+        for record in self:
+            vals['No_Contable'] = self.env['ir.sequence'].next_by_code('Seq_No_Contable')
+            vals['No_Registro'] = self.env['ir.sequence'].next_by_code('Seq_No_Registro')
+            seq_fact = self.env['ir.sequence'].next_by_code('seq_fact')
+            vals['name'] = 'SERIECC' + seq_fact
+            result = super(AccountMove, self).create(vals)
+            return result 
     
     @api.model
     def _get_next_sequence_number_contable(self):
