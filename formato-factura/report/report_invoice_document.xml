@@ -35,21 +35,18 @@
                             <span>Direccion del suministro </span> <br></br>
                                 <span t-field="o.address_suministro" /> <!--cuenta_contrato.address_suministro-->
 
-                            <p style="width: 100%; margin-top: 3px;">Secuencia: 00000000001</p>
+                            <p style="width: 100%; margin-top: 3px;">Secuencia: </p>
                         </td> 
                         <td style="position: relative;width: 50%; font-size: 8px !important; ">
                             <div style="position: absolute; top: 13px; width: 100%;text-align: center;align-content:center !important; ">
                                 <span>Fecha de Emisión:</span>
                                 <span style="margin-left: 4px;"><span t-field="o.invoice_date" t-options='{"format": "dd/MM/YYYY"}'/></span><!--invoice_date-->
-
-                                <span>Hora de Emisión</span>
-                                <span style="margin-left: 4px;">14:54,00</span>
                             </div>
                             
                             <p style="width: 100%; text-align: center; font-size: 11px; margin-top: -3.5px;">No. Factura: <span t-field="o.name" /></p><!--name-->
                             Titular del Pago:  Direccion de Notificacion/Fiscal <br></br>
                             <span t-field="o.partner_id.titular" /><br></br><!--partner_id.titular-->
-                            <span t-field="o.partner_id.dir_fisc" /><!--partner_id.dir_fisc-->
+                            <span t-field="o.address_suministro" /><!--partner_id.dir_fisc-->
                         </td>
                     </tr>
                 </table>
@@ -96,7 +93,7 @@
                     </tr>
                     <tr>
                         <t t-foreach="o.invoice_line_ids" t-as="invoice_line_ids">
-                            <td style="padding-left: 3px;"><span t-field="o.kwh_equivalente" />kWh(*) x <span t-field="invoice_line_ids.price_unit" />  30x<span t-field="o.dias_lectura" /></td><!--kwh_equivalente, price_unit, dias_lectura-->
+                            <td style="padding-left: 3px;"><span t-field="o.kwh_equivalente" />kWh(*) x <span t-field="invoice_line_ids.price_unit" /> / 30x<span t-field="o.dias_lectura" /></td><!--kwh_equivalente, price_unit, dias_lectura-->
                             <td style="text-align: right; padding-right: 5px;"><span t-field="o.monto_total_consumo" /></td>
                         </t>
                     </tr>
@@ -140,7 +137,7 @@
                         <td style="text-align: center; width:33.3%">Demanda Facturada</td>
                     </tr>
                     <tr>
-                        <td style="border: 1px solid black;text-align: center;"><span t-field="o.demanda" /></td><!--cuenta_contrato.demanda-->
+                        <td style="border: 1px solid black;text-align: center;"><span t-field="o.demanda_asignada" /></td><!--cuenta_contrato.demanda-->
                         <td style="border: 1px solid black;text-align: center;"><span t-field="o.demanda_leida" /></td><!--demanda_leida-->
                         <td style="border: 1px solid black;text-align: center;"><span t-field="o.demanda_facturada" /></td><!--demanda_facturada-->
                     </tr>
@@ -169,7 +166,7 @@
         <tfoot style="background-color: #ccc;">
             <tr>
               <td style="padding-left: 3px;">TOTAL CARGOS POR SERVICIO DE ELECTRICIDAD <span style="margin-left: 25%;">Bs.</span></td>
-              <td style="align-content: right; text-align: right; padding-right: 3px;"><span t-field="o.monto_total_demanda" /></td> <!--monto_total_demanda-->
+              <td style="align-content: right; text-align: right; padding-right: 3px;"><span t-field="o.amount_total" /></td> <!--monto_total_demanda-->
             </tr>
           </tfoot>
     </table>
@@ -208,7 +205,7 @@
               <tr>
                   <td style="padding-right: 4px;">SUB-TOTAL</td>
                   <td style="background-color: #ccc; width: 70px;">Bs</td>
-                  <td style="background-color: #ccc;"><span t-field="o.monto_total_demanda" /></td><!--monto_total_demanda-->
+                  <td style="background-color: #ccc;"><span t-field="o.amount_total" /></td><!--monto_total_demanda-->
               </tr>
           </table>
          </div>
@@ -250,7 +247,7 @@
               <tr>
                   <td style="padding-right: 4px;width: 77px;">TOTAL ASEO</td>
                   <td style="background-color: #ccc; width: 30px;">Bs.</td>
-                  <td style="background-color: #ccc;">88.32323,83</td>
+                  <td style="background-color: #ccc;">0</td>
               </tr>
           </table> 
          </div>
@@ -277,7 +274,7 @@
               <tr>
                   <td style="padding-right: 4px;width: 77px;">TOTAL IMPUESTO</td>
                   <td style="background-color: #ccc; width: 30px;">Bs.</td>
-                  <td style="background-color: #ccc;">88.32323,83</td>
+                  <td style="background-color: #ccc;">0</td>
               </tr>
           </table>
          </div>
@@ -308,7 +305,7 @@
               <tr>
                   <td style="padding-right: 4px;width: 77px;">TOTAL RELLENO</td>
                   <td style="background-color: #ccc; width: 30px;">Bs.</td>
-                  <td style="background-color: #ccc;">88.32323,83</td>
+                  <td style="background-color: #ccc;">0</td>
               </tr>
           </table>
          </div>
@@ -337,7 +334,7 @@
               <tr>
                   <td style="padding-right: 4px;width: 77px;">TOTAL GAS</td>
                   <td style="background-color: #ccc; width: 30px;">Bs.</td>
-                  <td style="background-color: #ccc;">88.32323,83</td>
+                  <td style="background-color: #ccc;">0</td>
               </tr>
           </table>
          </div>
@@ -377,7 +374,7 @@
             </div>
             <table style="position: absolute; bottom: 26px; left: 20px; border-collapse: collapse; font-size: 8px !important;">
                 <tr>
-                    <td>Servicio de Electricidad</td> <td>Bs.<span t-field="o.subtotal_electricidad" /></td><!--subtotal_electricidad-->
+                    <td>Servicio de Electricidad</td> <td>Bs.<span t-field="o.amount_untaxed" /></td><!--subtotal_electricidad-->
                 </tr>
                 <tr>    
                     <td>Otros Cargos y Créditos</td> <td>Bs.</td>
@@ -389,7 +386,7 @@
                     <td>Monto Exento o Exonerado de IVA </td> <td style="font-weight: bold;">(Bs.0,00)</td>
                 </tr>
                 <tr>
-                    <td> Total IVA</td> <td>Bs.</td>
+                    <td> Total IVA</td> <td><field name="o.amount_tax"/></td>
                 </tr>
             </table>
     
@@ -398,7 +395,7 @@
                     <tr>
                         <td style="padding-right: 4px;width: 77px; font-size: 6.5px; ">TOTAL ELECTRICIDAD</td>
                         <td style="background-color: #ccc; width: 30px;">Bs.</td>
-                        <td style="background-color: #ccc;text-align: right;"><span t-field="o.monto_total_demanda" /></td><!--monto_total_demanda-->
+                        <td style="background-color: #ccc;text-align: right;"><span t-field="o.amount_total" /></td><!--monto_total_demanda-->
                     </tr>
                 </table>
                </div>
@@ -457,17 +454,17 @@
                 <tr>
                     <td style="padding-right: 4px;width: 120px;">ENERGIA</td>
                     <td style="background-color: #ccc; width: 25px;">Bs.</td>
-                    <td style="background-color: #ccc;text-align: right;"><span t-field="o.monto_total_demanda" /></td><!--monto_total_demanda-->
+                    <td style="background-color: #ccc;text-align: right;"><span t-field="o.amount_total" /></td><!--monto_total_demanda-->
                 </tr>
                 <tr>
                     <td style="padding-right: 4px;width: 120px;">OTROS SERVICIOS</td>
                     <td style="background-color: #ccc; width: 25px;">Bs.</td>
-                    <td style="background-color: #ccc; text-align: right;">88.323.000.000.000</td>
+                    <td style="background-color: #ccc; text-align: right;">0</td>
                 </tr>
                 <tr>
                     <td style="padding-right: 4px;width: 120px;">TOTAL </td>
                     <td style="background-color: #ccc; width: 25px;">Bs.</td>
-                    <td style="background-color: #ccc; text-align: right;"><span t-field="o.monto_total_demanda" /></td><!--monto_total_demanda-->
+                    <td style="background-color: #ccc; text-align: right;"><span t-field="o.amount_total" /></td><!--monto_total_demanda-->
                 </tr>
             </table>
            </div>

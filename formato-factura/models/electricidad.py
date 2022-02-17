@@ -5,10 +5,6 @@ from odoo import models, fields, api, exceptions
 
 class Electricidad( models.Model):
     _inherit = 'account.move'
-    linea_electricidad = fields.One2many(
-        comodel_name="linea.servicio", 
-        inverse_name="move_id",
-        states={'draft': [('readonly', False)]})
     
     subtotal_electricidad = fields.Float( string="Subtotal Electricidad", store=True)
     #-------------- SECCION DE CONSUMO ----------------------------
