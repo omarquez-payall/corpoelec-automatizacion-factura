@@ -29,7 +29,7 @@
                                         <field name="monto_total_demanda" />    
                                     </group>
                                 </group>
-                            </group>
+                              </group>
                     </page>
                 </xpath>
             </field>

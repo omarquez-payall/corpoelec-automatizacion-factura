@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api
+
 import datetime
+
 
 
 class AccountMove( models.Model):
     _inherit = 'account.move'
+
     name = fields.Char( string = 'Number',readonly=True, index=True, default=lambda self: self._get_seq_fact())
     
     #------------------- Relacion con los servicios ------------------
@@ -41,6 +44,7 @@ class AccountMove( models.Model):
             record.dias_lectura = record.inicio_periodo.day
             
             
+
 
     @api.model
     def create(self, vals):
@@ -83,16 +87,8 @@ class AccountMove( models.Model):
             
             for product in products:
                 #CAMBIAR ACCOUNT_ID CUANDO SE SEPA A CUAL VA
-                record.invoice_line_ids.create({
-                    'name': product.name,
-                    'price_unit': product.price,
-                    'quantity': 1,
-                    'product_id': product.id,
-                    'account_id': 1,
-                    'move_id': record.id
-                })
-                record.cargar_productos = True
-            record.linea_electricidad.create({
+                
+              record.linea_electricidad.create({
                 'move_id': record.id,
                 'nombre_cargo': 'FACTURACION POR CONSUMO',
                 'cantidad': 1,
@@ -100,8 +96,8 @@ class AccountMove( models.Model):
                 'clasificacion':'consumo',
                 'precio_unidad':1,
                 'subtotal':1
-            })
-            record.linea_electricidad.create({
+              })
+              record.linea_electricidad.create({
                 'move_id': record.id,
                 'nombre_cargo': 'CARGO POR AJUSTE COMBUSTIBLE Y ENERGIA',
                 'cantidad': 1,
@@ -109,8 +105,8 @@ class AccountMove( models.Model):
                 'clasificacion':'combustible',
                 'precio_unidad':1,
                 'subtotal':1
-            })
-            record.linea_electricidad.create({
+              })
+              record.linea_electricidad.create({
                 'move_id': record.id,
                 'nombre_cargo': 'FACTURACION POR DEMANDA',
                 'cantidad': 1,
@@ -118,4 +114,4 @@ class AccountMove( models.Model):
                 'clasificacion':'demanda',
                 'precio_unidad':1,
                 'subtotal':1
-            })
+              })

@@ -13,6 +13,7 @@
                                   <span style="font-size: 6px ; margin-left: 17px;"><span t-field="o.No_Registro" /></span> <!--No_Registro-->
                                   <span style="font-size: 6px ;margin-left: 40px;">No. Doc. Contable:</span> 
                                   <span style="font-size: 6px ; margin-left: 17px;"><span t-field="o.No_Contable" /></span> <!--No_Contable-->
+
                                 </td>
                                 <td valign="button" style="width: 15%;  height: 100%; /* border: 1px solid red; */ text-align: center; vertical-align:bottom">FACTURA</td>
                                 <td style="width: 43%;  height: 100%; /* border: 1px solid red; */ align-content: center; text-align: center;">

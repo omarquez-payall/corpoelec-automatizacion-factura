@@ -27,6 +27,7 @@
         'security/ir.model.access.csv',
         'data/chart_data.xml',
         'data/account.account.template.csv',
+        'data/product.xml',
         'data/chart_post_data.xml',
         'data/chart_template_data.xml',
         'data/res_partner.xml',
@@ -41,6 +42,7 @@
         'report/external_layout_background_inherit.xml',
         'report/report_invoice_document.xml',
         'data/res.country.state.csv',
+
     ],
     # only loaded in demonstration mode
     'demo': [

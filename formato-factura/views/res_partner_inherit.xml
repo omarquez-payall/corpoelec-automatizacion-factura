@@ -10,6 +10,7 @@
                 </xpath>
                 <xpath expr="//field[@name='vat']" position="after"> 
                     <field name="partner_code" placeholder="Código de Interlocutor" readonly="1"/> 
+                    <field name="interlocutor_id" invisible="1"/> 
                 </xpath>
                 <notebook>
                     <page string ="Direccion Fiscal">
@@ -19,6 +20,7 @@
                     </page>
                 </notebook>
                 
+
             </field>
         </record>
 

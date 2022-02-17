@@ -5,6 +5,7 @@ import datetime
 
 class AccountMove( models.Model):
     _inherit = 'account.move'
+
     name = fields.Char( string = 'Number',readonly=True, index=True, default=lambda self: self._get_seq_fact())
     
     #------------------- Relacion con los servicios ------------------
@@ -70,6 +71,7 @@ class AccountMove( models.Model):
             sequence = self.env['ir.sequence'].search([('code','=', 'seq_fact')])
             next = 'MMGB' + sequence.get_next_char(sequence.number_next_actual)
             return next
+
 
     @api.onchange('partner_id')
     def _filtrar_cuentas_contrato(self):

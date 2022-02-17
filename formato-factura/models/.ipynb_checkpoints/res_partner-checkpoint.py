@@ -4,11 +4,13 @@ from odoo import models, fields, api
 
 class PartnerCodeInherit( models.Model):
     _inherit = 'res.partner'
+
     country_id = fields.Many2one(comodel_name='res.country', string='Country', default=lambda self: self._get_default_country())
     partner_code = fields.Char(string = 'Código de Interlocutor', default=lambda self: self._get_next_sequence_number() )
     titular = fields.Char(string = 'titular de pago')
 
     dir_fisc = fields.Text(string = 'Direccion fiscal')
+
 
     
     @api.model
@@ -22,6 +24,7 @@ class PartnerCodeInherit( models.Model):
         for record in self:
             sequence = self.env['ir.sequence'].search([('code','=','partner_code_seq')])
             next= sequence.get_next_char(sequence.number_next_actual)
+
             return next
         
     @api.model
