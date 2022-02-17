@@ -5,11 +5,11 @@ import datetime
 
 class AccountMove( models.Model):
     _inherit = 'account.move'
-    name = fields.Char( string = 'Number',readonly=True, required = True, index=True, default=lambda self: self._get_seq_fact())
+    name = fields.Char( string = 'Number',readonly=True, index=True, default=lambda self: self._get_seq_fact())
     
     #------------------- Relacion con los servicios ------------------
-    No_Contable = fields.Char( string = 'No Doc Contable',readonly=True, required = True, index=True, default=lambda self: self._get_next_sequence_number_contable())
-    No_Registro = fields.Char( string = 'No Registro',readonly=True, required = True, index=True, default=lambda self: self._get_next_sequence_number_registro())
+    No_Contable = fields.Char( string = 'No Doc Contable',readonly=True, index=True, default=lambda self: self._get_next_sequence_number_contable())
+    No_Registro = fields.Char( string = 'No Registro',readonly=True, index=True, default=lambda self: self._get_next_sequence_number_registro())
     
     #------------------- CUENTA CONTRATO ------------------
     no_cta_contrato = fields.Char(string = 'Cuenta Contrato')
@@ -46,6 +46,7 @@ class AccountMove( models.Model):
     def create(self, vals):
         vals['No_Contable'] = self.env['ir.sequence'].next_by_code('Seq_No_Contable')
         vals['No_Registro'] = self.env['ir.sequence'].next_by_code('Seq_No_Registro')
+        vals['name'] = self.env['ir.sequence'].next_by_code('seq_fact')
         result = super(AccountMove, self).create(vals)
         return result 
     
