@@ -21,7 +21,7 @@ class Electricidad( models.Model):
     demanda_facturada = fields.Integer( string = "Demanda Facturada", store=True)
     monto_total_demanda = fields.Float( string = "Monto total demanda", store=True)
 
-    @api.onchange('lectura_actual','lectura_anterior','factor_multiplicador','dias_lectura')
+    """ @api.onchange('lectura_actual','lectura_anterior','factor_multiplicador','dias_lectura')
     def _compute_cantidad_medida( self):
         for record in self:
             if record.lectura_actual and record.lectura_anterior and record.factor_multiplicador and record.dias_lectura:
@@ -35,3 +35,4 @@ class Electricidad( models.Model):
                 )
                 if (record.dias_lectura > 0):
                     record.kwh_equivalente = (record.cantidad_medida * 30) / record.dias_lectura            
+ """

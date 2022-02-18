@@ -94,22 +94,21 @@
                     <tr>
                         <t t-foreach="o.invoice_line_ids" t-as="invoice_line_ids">
                             <td style="padding-left: 3px;"><span t-field="o.kwh_equivalente" />kWh(*) x <span t-field="invoice_line_ids.price_unit" /> / 30x<span t-field="o.dias_lectura" /></td><!--kwh_equivalente, price_unit, dias_lectura-->
-                            <td style="text-align: right; padding-right: 5px;"><span t-field="o.monto_total_consumo" /></td>
+                            <td style="text-align: right; padding-right: 5px;"><span t-field="o.untaxed_amount" /></td>
                         </t>
                     </tr>
-        
                     <tr>
-                        <td colspan="2" style="padding-left: 3px;" >CARGOS POR AJUSTE COMBUSTIBLE Y ENERGIA (''')</td>
+                        <td style="padding-left: 3px;" colspan="2">CARGOS POR AJUSTE COMBUSTIBLE Y ENERGIA (***)</td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 3px;" > Laiores voluptas! Voluptates reiciendis eius quod voluptas, 203X30</td>
+                        <td style="padding-left: 3px;" > <span t-field="o.kwh_equivalente" />kWh(*) x Bs 0,00</td>
                         <td style="text-align: right; padding-right: 5px;">0.05</td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 3px;" colspan="2">CARGOS POR AJUSTE COMBUSTIBLE Y ENERGIA (''')</td>
+                        <td colspan="2" style="padding-left: 3px;" >FACTURACION POR DEMANDA(***)</td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 3px;" > Laiores voluptas! Voluptates reiciendis eius quod voluptas, 203X30</td>
+                        <td style="padding-left: 3px;" > <span t-field="o.kwh_equivalente" />kWh(*)  / 30 x <span t-field="o.dias_lectura" /></td>
                         <td style="text-align: right; padding-right: 5px;">0.05</td>
                     </tr>
                 </tbody>
@@ -398,7 +397,7 @@
                         <td style="background-color: #ccc;text-align: right;"><span t-field="o.amount_total" /></td><!--monto_total_demanda-->
                     </tr>
                 </table>
-               </div>
+            </div>
         </div>
            <!--  ###################### SALDO VENCIDO ##################### -->
      <div id="saldoVencido" style="position:absolute; width: 30%;top: 1px; right: 0px; border: 1px solid black;height: 140px; ">
