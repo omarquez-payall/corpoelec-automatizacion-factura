@@ -26,7 +26,8 @@
                                         <field name="demanda_asignada"/>
                                         <field name="demanda_leida"/>
                                         <field name="demanda_facturada" />
-                                        <field name="monto_total_demanda" />    
+                                        <field name="monto_total_demanda" />  
+                                        <field name="precio_consumo" />  
                                     </group>
                                 </group>
                               </group>

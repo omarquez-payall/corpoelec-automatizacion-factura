@@ -32,6 +32,7 @@ class AccountMove( models.Model):
 
     dias_lectura = fields.Integer( string = "Dias Lectura", store = True)
     cargar_productos = fields.Boolean( string="Cargar", default = False)
+    precio_consumo = fields.Integer( string = "precio")
     saldo_vencido = fields.Float( string="Saldo Vencido", default = 0.0)
     # COMO DEBE ESTAR EN PRODUCCION
     #dias_lectura = fields.Integer( string = "Dias Lectura", required = True)

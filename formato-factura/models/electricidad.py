@@ -20,7 +20,7 @@ class Electricidad( models.Model):
     demanda_leida = fields.Integer( string = "Demanda Leida", store=True)
     demanda_facturada = fields.Integer( string = "Demanda Facturada", store=True)
     monto_total_demanda = fields.Float( string = "Monto total demanda", store=True)
-
+    demanda_seleccionada = fields.Integer( string = "Demanda a facturar", store=True)
     """ @api.onchange('lectura_actual','lectura_anterior','factor_multiplicador','dias_lectura')
     def _compute_cantidad_medida( self):
         for record in self:
