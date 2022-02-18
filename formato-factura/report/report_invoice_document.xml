@@ -225,11 +225,11 @@
           9000 Eliminacion de Desperdicios y Aguas Residuales <br></br>
           Sanamiento y Actividades Similares
       </div>
-      <div style="position: absolute; top:2px; left: 17%; font-size: 5px; text-align: center; align-content: center; width: 80%;">
+      <!-- <div style="position: absolute; top:2px; left: 17%; font-size: 5px; text-align: center; align-content: center; width: 80%;">
           Fospuca Solillo , C.A. RIF: J-40944472-1 Av Costanera cruce con avenida   <br></br>
           Fuerzas Armadas CC Camino Real nivel feria de planta 1 local B-L63. <br></br>
           módulo B sector centro Barcelona Anzoategui zona postal
-      </div>
+      </div> -->
       <table style="position: absolute; bottom: 26px; left: 13px; border-collapse: collapse; font-size: 8px !important;">
           <tr>
               <td>Servicio de Aseo Urbano</td> <td>Bs.</td>
@@ -418,7 +418,7 @@
                 <td>Eléctricidad, Saldo Vencido</td> <td style="vertical-align:top; padding-left: 5px;">Bs.<span t-field="o.saldo_vencido" /></td><!--saldo_vencido-->
             </tr>
             <tr>
-                <td>Aseo, Saldo Vencido</td> <td style="padding-left: 5px;">Bs.</td>
+                <td>Aseo, Saldo Vencido</td> <td style="padding-left: 5px;">Bs.   <span> 0</span></td>
             </tr>
 
         </table>

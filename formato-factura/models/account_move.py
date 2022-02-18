@@ -87,7 +87,7 @@ class AccountMove( models.Model):
             for product in products:
                 #CAMBIAR ACCOUNT_ID CUANDO SE SEPA A CUAL VA
                 
-              record.linea_electricidad.create({
+              record.invoice_line_ids.create({
                 'move_id': record.id,
                 'nombre_cargo': 'FACTURACION POR CONSUMO',
                 'cantidad': 1,
@@ -96,7 +96,7 @@ class AccountMove( models.Model):
                 'precio_unidad':1,
                 'subtotal':1
               })
-              record.linea_electricidad.create({
+              record.invoice_line_ids.create({
                 'move_id': record.id,
                 'nombre_cargo': 'CARGO POR AJUSTE COMBUSTIBLE Y ENERGIA',
                 'cantidad': 1,
@@ -105,7 +105,7 @@ class AccountMove( models.Model):
                 'precio_unidad':1,
                 'subtotal':1
               })
-              record.linea_electricidad.create({
+              record.invoice_line_ids.create({
                 'move_id': record.id,
                 'nombre_cargo': 'FACTURACION POR DEMANDA',
                 'cantidad': 1,
