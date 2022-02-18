@@ -28,6 +28,7 @@
                                         <field name="demanda_facturada" />
                                         <field name="monto_total_demanda" />  
                                         <field name="precio_consumo" />  
+                                        <field name="demanda_seleccionada" invisible="1"/>  
                                     </group>
                                 </group>
                               </group>
